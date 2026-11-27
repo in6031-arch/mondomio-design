@@ -3,45 +3,55 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MONDOMIO DESIGN | Architects &amp; Interior Studio</title>
+  <title>MONDOMIO | Architects &amp; Interior Studio</title>
   <link rel="preconnect" href="https://googleapis.com">
   <link rel="preconnect" href="https://gstatic.com" crossorigin>
-  <link href="https://googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="/" class="logo"><img src="/sample.jpg" alt="MONDOMIO DESIGN"></a>
+  <header class="site-header overlay-header" id="siteHeader">
+    <div class="container header-three-col">
       <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="메뉴 열기" aria-expanded="false">
         <span></span>
         <span></span>
         <span></span>
       </button>
-      <nav class="main-nav" id="mainNav">
-        <a href="#works">PORTFOLIO</a>
+
+      <nav class="main-nav left-nav" id="mainNav">
+        <a href="#works">Works</a>
+        <a href="/about.html">About</a>
+        <a href="/about.html#aboutContactSection">Project request</a>
         <a href="#faq">FAQ</a>
-        <a href="/about.html">ABOUT &amp; PROCESS</a>
-        <a href="#quickContact">CONTACT</a>
       </nav>
+
+      <a href="/" class="brand-center-group">
+        <span class="brand-wordmark">MONDOMIO</span>
+        <span class="brand-meaning">Mondo Mio는 이탈리아어로 &lsquo;나의 세계(My World)&rsquo;라는 뜻입니다.</span>
+      </a>
+
+      <div class="header-right-spacer" aria-hidden="true"></div>
     </div>
   </header>
 
-  <section class="editorial-hero">
-    <div class="container">
-      <div class="hero-headline-wrap">
-        <h1 class="serif-title">Creative Design Ability<br>and Technology <span class="accent-dot">.</span></h1>
-        <p class="hero-sub">공간의 본질과 빛의 흐름을 설계하는 건축·인테리어 디자인 스튜디오, MONDOMIO DESIGN</p>
-      </div>
-      <div class="hero-banner-frame zoom-frame"><img src="/work1.jpg" alt="MONDOMIO DESIGN 대표 건축 프로젝트"></div>
+  <section class="fullscreen-hero">
+    <img src="/work1.jpg" alt="MONDOMIO 대표 공간" class="fullscreen-hero-bg">
+    <div class="fullscreen-hero-shade"></div>
+
+    <div class="fullscreen-hero-content container">
+      <p class="hero-meaning-eyebrow">MONDO + MIO &mdash; 나만의 온전한 공간 세계</p>
+      <h1 class="fullscreen-hero-title">Creative Design Ability<br>and Technology <span class="accent-dot">.</span></h1>
+      <p class="fullscreen-hero-sub">공간의 본질과 빛의 흐름을 설계하는 건축·인테리어 디자인 스튜디오</p>
     </div>
+
+    <div class="fullscreen-hero-copy">&copy; 2026 MONDOMIO interior design group</div>
   </section>
 
   <section class="editorial-split">
     <div class="container split-inner">
       <div class="split-text">
         <h2 class="serif-heading">Where beauty<br>and function<br>perfectly unite</h2>
-        <p>과장된 장식을 덜어내고 재료 본연의 질감과 사용자의 동선을 정교하게 조율하여, 시간이 흐를수록 깊이를 더하는 공간을 제안합니다.</p>
+        <p>이탈리아어 <em>Mondo</em>(세계)와 <em>Mio</em>(나의)의 결합처럼, 과장된 장식을 덜어내고 재료 본연의 질감과 자연광을 조율하여 오직 머무는 사람만을 위한 온전한 공간 세계를 설계합니다.</p>
         <a href="/about.html" class="editorial-link">VIEW MORE</a>
       </div>
       <div class="split-media zoom-frame"><img src="/work2.jpg" alt="한남동 미니멀 펜트하우스 인테리어"></div>
@@ -53,7 +63,7 @@
       <div class="staggered-col col-left"><div class="staggered-img-box zoom-frame"><img src="/work3.jpg" alt="성수 아틀리에"></div></div>
       <div class="staggered-col col-center">
         <h2 class="serif-heading">Architects<br>And<br>Interior Studio</h2>
-        <span class="studio-badge">MONDOMIO DESIGN</span>
+        <span class="studio-badge">MONDOMIO</span>
         <p>주거 공간의 고요한 휴식부터 상업 공간의 브랜드 경험까지, 기획·설계·시공의 전 과정을 일관된 디렉팅으로 완성합니다.</p>
         <a href="/about.html" class="editorial-link">VIEW MORE</a>
       </div>
@@ -75,13 +85,13 @@
         <div class="works-side-caption" id="sideCaptionBox">
           <span class="caption-label" id="sideCaptionTitle">Selected Works</span>
           <p id="sideCaptionDesc">상단의 카테고리 버튼(전체 작업물, 건축, 주거 공간, 상업 공간)을 클릭하시면 해당 분야의 대표 프로젝트를 확인하실 수 있습니다.</p>
-          <a href="/about.html" class="editorial-link">PROJECT INQUIRY</a>
+          <a href="/about.html#aboutContactSection" class="editorial-link">PROJECT REQUEST</a>
         </div>
 
         <div class="works-display-area">
           <div id="worksPlaceholder" class="works-placeholder">
             <p class="placeholder-title">카테고리를 선택해 주세요</p>
-            <p class="placeholder-sub">위 버튼을 클릭하시면 MONDOMIO DESIGN의 분야별 공간 포트폴리오가 펼쳐집니다.</p>
+            <p class="placeholder-sub">위 버튼을 클릭하시면 MONDOMIO의 분야별 공간 포트폴리오가 펼쳐집니다.</p>
           </div>
           <div class="works-grid" id="worksGrid" style="display: none;"></div>
         </div>
@@ -95,7 +105,7 @@
         <span class="category">FAQ</span>
         <h2 class="serif-heading">Frequently<br>Asked<br>Questions</h2>
         <p>프로젝트 의뢰 전 고객님께서 가장 자주 문의하시는 설계·시공 및 견적 안내입니다.</p>
-        <a href="#quickContact" class="editorial-link">DIRECT INQUIRY</a>
+        <a href="/about.html#aboutContactSection" class="editorial-link">PROJECT REQUEST</a>
       </div>
 
       <div class="faq-list" id="faqList">
@@ -125,7 +135,7 @@
             <span class="faq-icon">+</span>
           </button>
           <div class="faq-answer">
-            <p>네, 가능합니다. MONDOMIO DESIGN은 수도권은 물론 부산·경남 등 주요 거점 지역의 단독주택 건축 및 하이엔드 주거·상업 프로젝트를 다수 수행하고 있으며, 전담 디렉터의 정기 현장 감리 시스템을 동일하게 운영합니다.</p>
+            <p>네, 가능합니다. MONDOMIO는 수도권은 물론 부산·경남 등 주요 거점 지역의 단독주택 건축 및 하이엔드 주거·상업 프로젝트를 다수 수행하고 있으며, 전담 디렉터의 정기 현장 감리 시스템을 동일하게 운영합니다.</p>
           </div>
         </div>
 
@@ -151,79 +161,22 @@
       </div>
     </div>
   </section>
-  <section id="quickContact" class="dark-contact-section">
-    <div class="container dark-contact-inner">
-      <span class="dark-eyebrow">&bull; WE'RE HERE TO HELP YOU</span>
-      <h2 class="serif-heading light-text">We pursue space<br>Design<br>for relaxation</h2>
-      <form id="quickInquiryForm" class="dark-inquiry-form">
-        <div class="dark-select-grid">
-          <div class="dark-input-row">
-            <select id="quickType" required>
-              <option value="" disabled selected>공간 유형 선택 (Project Type)</option>
-              <option value="건축 신축·리노베이션">건축 신축 · 리노베이션</option>
-              <option value="주거 공간 인테리어">주거 공간 인테리어</option>
-              <option value="상업·오피스 공간">상업 · 오피스 공간</option>
-              <option value="기타 공간 컨설팅">기타 공간 컨설팅</option>
-            </select>
-          </div>
-          <div class="dark-input-row">
-            <select id="quickArea" required>
-              <option value="" disabled selected>예상 면적 선택 (Area)</option>
-              <option value="20평대 이하">20평대 이하 (약 66㎡ 이하)</option>
-              <option value="30~40평대">30~40평대 (약 99~132㎡)</option>
-              <option value="50~60평대">50~60평대 (약 165~198㎡)</option>
-              <option value="70평 이상 / 단독주택">70평 이상 / 단독주택·건물</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="dark-input-row"><input type="text" id="quickName" placeholder="성함 / 업체명 (Name)" required></div>
-        <div class="dark-input-row"><input type="text" id="quickMemo" placeholder="프로젝트 위치, 희망 시기 등 간단한 문의 내용 (Memo)" required></div>
-
-        <div class="dark-file-box">
-          <label for="quickFile" class="dark-file-label">
-            <span>📎 도면 / 현장 이미지 첨부 (JPG, PNG, WEBP · 최대 15MB)</span>
-            <span id="quickFileStatus" class="file-status-text">선택된 파일 없음</span>
-          </label>
-          <input type="file" id="quickFile" accept="image/jpeg,image/png,image/webp" style="display: none;">
-          <div id="quickPreviewWrap" class="file-preview-wrap" style="display: none;">
-            <img id="quickPreviewImg" src="" alt="첨부 미리보기">
-            <button type="button" id="quickFileClear" class="btn-file-clear">첨부 취소 ✕</button>
-          </div>
-        </div>
-
-        <div class="dark-secret-row">
-          <label class="agree-check">
-            <input type="checkbox" id="quickSecret">
-            <span>🔒 비밀글로 등록 (작성자 및 관리자만 열람·수정 가능)</span>
-          </label>
-          <input type="password" id="quickPostPw" class="dark-secret-pw" placeholder="글 비밀번호 (4자리 이상)" minlength="4" style="display: none;">
-        </div>
-
-        <div class="dark-agree-row">
-          <label class="agree-check"><input type="checkbox" id="quickAgree" required><span>개인정보 수집 및 이용 동의</span></label>
-          <a href="/about.html" class="board-link">전체 문의 목록 및 비밀글 확인 →</a>
-        </div>
-        <button type="submit" class="btn-dark-submit" id="quickSubmitBtn">CONTACT</button>
-      </form>
-    </div>
-  </section>
 
   <footer class="editorial-footer">
     <div class="container footer-top">
-      <div class="footer-brand"><img src="/sample.jpg" alt="MONDOMIO DESIGN"></div>
+      <a href="/" class="footer-wordmark">MONDOMIO</a>
       <div class="footer-nav">
-        <a href="#works">PORTFOLIO</a>
+        <a href="#works">Works</a>
+        <a href="/about.html">About</a>
+        <a href="/about.html#aboutContactSection">Project request</a>
         <a href="#faq">FAQ</a>
-        <a href="/about.html">ABOUT</a>
-        <a href="#quickContact">CONTACT</a>
       </div>
     </div>
     <div class="container footer-bottom">
       <div class="footer-info">
-        <p>MONDOMIO DESIGN | 건축 · 인테리어 디자인 스튜디오</p>
-        <p>상담 문의 및 프로젝트 의뢰: 온라인 빠른 상담 접수</p>
-        <p class="copyright">&copy; 2026 MONDOMIO DESIGN. All rights reserved.</p>
+        <p>MONDOMIO | 건축 · 인테리어 디자인 스튜디오 (Mondo + Mio : 나만의 공간 세계)</p>
+        <p>상담 문의 및 프로젝트 의뢰: Project request 온라인 상담 접수</p>
+        <p class="copyright">&copy; 2026 MONDOMIO interior design group. All rights reserved.</p>
       </div>
       <div class="footer-motto"><p class="serif-motto">We aim for a<br>timeless interior.</p></div>
     </div>
@@ -242,11 +195,23 @@
           <div class="spec-item"><span class="spec-label">설계·시공 기간</span><span id="modalPeriod" class="spec-value"></span></div>
         </div>
         <p id="modalDesc" class="modal-description"></p>
-        <div class="modal-actions"><a href="/about.html" class="btn-primary">유사 프로젝트 상담하기 →</a></div>
+        <div class="modal-actions"><a href="/about.html#aboutContactSection" class="btn-primary">유사 프로젝트 상담하기 →</a></div>
       </div>
     </div>
   </div>
   <script>
+    const siteHeader = document.getElementById('siteHeader');
+    function handleHeaderScroll() {
+      if (!siteHeader) return;
+      if (window.scrollY > 60) {
+        siteHeader.classList.add('scrolled');
+      } else {
+        siteHeader.classList.remove('scrolled');
+      }
+    }
+    window.addEventListener('scroll', handleHeaderScroll, { passive: true });
+    handleHeaderScroll();
+
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const mainNav = document.getElementById('mainNav');
 
@@ -292,7 +257,7 @@
     ];
 
     const captionMap = {
-      all: { title: "All Selected Works (6)", desc: "MONDOMIO DESIGN이 완공한 건축, 하이엔드 주거 공간, 브랜드 상업 공간의 대표 포트폴리오 전체 목록입니다." },
+      all: { title: "All Selected Works (6)", desc: "MONDOMIO가 완공한 건축, 하이엔드 주거 공간, 브랜드 상업 공간의 대표 포트폴리오 전체 목록입니다." },
       Architecture: { title: "Architecture (2)", desc: "대지의 맥락과 빛의 흐름을 분석하여 시간이 지나도 변치 않는 조형미를 구현하는 신축·리노베이션 건축 프로젝트입니다." },
       "Residential Interior": { title: "Residential Interior (2)", desc: "거주자의 라이프스타일과 동선을 반영하여 고요하고 깊이 있는 휴식을 선사하는 하이엔드 주거 인테리어입니다." },
       "Commercial Space": { title: "Commercial Space (2)", desc: "브랜드 고유의 철학을 공간 경험으로 전환하여 고객의 머무름과 가치를 높이는 상업 공간 디렉팅입니다." }
@@ -387,142 +352,6 @@
     modalCloseBtn.addEventListener('click', closeProjectModal);
     projectModal.addEventListener('click', (e) => { if (e.target === projectModal) closeProjectModal(); });
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && projectModal.classList.contains('active')) closeProjectModal(); });
-
-    function compressAndValidateImage(file) {
-      return new Promise((resolve, reject) => {
-        const allowedTypes = ['image/jpeg', 'image/png', 'image/webp'];
-        if (!allowedTypes.includes(file.type)) {
-          return reject(new Error('첨부 오류: JPG, PNG, WEBP 형식의 도면 또는 사진 파일만 업로드할 수 있습니다.'));
-        }
-        const maxBytes = 15 * 1024 * 1024;
-        if (file.size > maxBytes) {
-          return reject(new Error('첨부 오류: 파일 용량이 15MB를 초과했습니다. 15MB 이하의 이미지를 선택해 주세요.'));
-        }
-
-        const reader = new FileReader();
-        reader.onerror = () => reject(new Error('첨부 오류: 파일을 읽는 중 손상되었거나 접근할 수 없습니다.'));
-        reader.onload = (ev) => {
-          const img = new Image();
-          img.onerror = () => reject(new Error('첨부 오류: 손상된 이미지 파일입니다. 다른 파일을 선택해 주세요.'));
-          img.onload = () => {
-            const maxDim = 900;
-            let width = img.width;
-            let height = img.height;
-            if (width > maxDim || height > maxDim) {
-              if (width > height) {
-                height = Math.round((height * maxDim) / width);
-                width = maxDim;
-              } else {
-                width = Math.round((width * maxDim) / height);
-                height = maxDim;
-              }
-            }
-            const canvas = document.createElement('canvas');
-            canvas.width = width;
-            canvas.height = height;
-            const ctx = canvas.getContext('2d');
-            ctx.drawImage(img, 0, 0, width, height);
-            resolve(canvas.toDataURL('image/jpeg', 0.72));
-          };
-          img.src = ev.target.result;
-        };
-        reader.readAsDataURL(file);
-      });
-    }
-
-    const quickFile = document.getElementById('quickFile');
-    const quickFileStatus = document.getElementById('quickFileStatus');
-    const quickPreviewWrap = document.getElementById('quickPreviewWrap');
-    const quickPreviewImg = document.getElementById('quickPreviewImg');
-    const quickFileClear = document.getElementById('quickFileClear');
-    const quickSecret = document.getElementById('quickSecret');
-    const quickPostPw = document.getElementById('quickPostPw');
-    let quickCompressedImg = '';
-
-    quickSecret.addEventListener('change', () => {
-      quickPostPw.style.display = quickSecret.checked ? 'block' : 'none';
-      quickPostPw.required = quickSecret.checked;
-      if (!quickSecret.checked) quickPostPw.value = '';
-    });
-
-    quickFile.addEventListener('change', async (e) => {
-      const file = e.target.files[0];
-      if (!file) return;
-      try {
-        quickFileStatus.textContent = '이미지 최적화 처리 중...';
-        quickCompressedImg = await compressAndValidateImage(file);
-        quickFileStatus.textContent = `${file.name} (첨부 준비 완료)`;
-        quickPreviewImg.src = quickCompressedImg;
-        quickPreviewWrap.style.display = 'flex';
-      } catch (err) {
-        alert(err.message);
-        quickFile.value = '';
-        quickCompressedImg = '';
-        quickFileStatus.textContent = '선택된 파일 없음';
-        quickPreviewWrap.style.display = 'none';
-      }
-    });
-
-    quickFileClear.addEventListener('click', () => {
-      quickFile.value = '';
-      quickCompressedImg = '';
-      quickFileStatus.textContent = '선택된 파일 없음';
-      quickPreviewWrap.style.display = 'none';
-    });
-
-    const quickForm = document.getElementById('quickInquiryForm');
-    if (quickForm) {
-      quickForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const projectType = document.getElementById('quickType').value;
-        const projectArea = document.getElementById('quickArea').value;
-        const username = document.getElementById('quickName').value.trim();
-        const rawMemo = document.getElementById('quickMemo').value.trim();
-        const isSecret = quickSecret.checked;
-        const postPassword = quickPostPw.value.trim();
-
-        if (!projectType || !projectArea || !username || !rawMemo) return;
-        if (isSecret && postPassword.length < 4) {
-          alert('비밀글 설정 시 4자리 이상의 비밀번호를 입력해 주세요.');
-          return;
-        }
-
-        const formattedMemo = `[${projectType} / ${projectArea}] ${rawMemo}`;
-        const submitBtn = document.getElementById('quickSubmitBtn');
-        submitBtn.disabled = true;
-        submitBtn.textContent = '접수 중...';
-
-        try {
-          const res = await fetch('/memos', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              username,
-              memo: formattedMemo,
-              isSecret,
-              postPassword,
-              imageData: quickCompressedImg
-            })
-          });
-          const data = await res.json();
-          if (!res.ok) throw new Error(data.error || '상담 등록에 실패했습니다.');
-
-          alert(isSecret
-            ? '비밀글로 상담 문의가 정상 접수되었습니다. 전체 문의 목록에서 설정하신 비밀번호로 열람 및 수정하실 수 있습니다.'
-            : '상담 문의가 정상적으로 접수되었습니다. 담당 디자이너가 확인 후 연락드리겠습니다.');
-          quickForm.reset();
-          quickCompressedImg = '';
-          quickFileStatus.textContent = '선택된 파일 없음';
-          quickPreviewWrap.style.display = 'none';
-          quickPostPw.style.display = 'none';
-        } catch (err) {
-          alert(err.message);
-        } finally {
-          submitBtn.disabled = false;
-          submitBtn.textContent = 'CONTACT';
-        }
-      });
-    }
   </script>
 </body>
 </html>
