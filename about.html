@@ -294,12 +294,13 @@
     });
 
     aboutFile.addEventListener('change', async (e) => {
-      const file = e.target.files[0];
+      const files = e.target.files;
+      const file = files && files.item(0);
       if (!file) return;
       try {
         aboutFileStatus.textContent = '이미지 최적화 중...';
         aboutCompressedImg = await compressAndValidateImage(file);
-        aboutFileStatus.textContent = `${file.name} (첨부 준비 완료)`;
+        aboutFileStatus.textContent = file.name + ' (첨부 준비 완료)';
         aboutPreviewImg.src = aboutCompressedImg;
         aboutPreviewWrap.style.display = 'flex';
       } catch (err) {
@@ -381,7 +382,6 @@
       updateAdminUI();
       loadMemos();
     });
-
     async function loadMemos() {
       try {
         const headers = {};
@@ -396,7 +396,7 @@
           return;
         }
 
-        memoCountBadge.textContent = `총 ${memos.length}건`;
+        memoCountBadge.textContent = '총 ' + memos.length + '건';
 
         memoList.innerHTML = memos.map(item => {
           const localUnlocked = unlockedPosts[item.id];
@@ -418,7 +418,7 @@
                   ${item.secret && !isUnlocked ? `
                     <button type="button" class="btn-dark-unlock" onclick="unlockSecretMemo(${item.id})">비밀글 열람</button>
                   ` : ''}
-                  ${item.secret && isUnlocked ? `
+                  ${isUnlocked ? `
                     <button type="button" class="btn-dark-edit" onclick="openEditMemoBox(${item.id})">내용 수정</button>
                   ` : ''}
                   ${adminPassword ? `
@@ -456,23 +456,160 @@
     }
 
     async function unlockSecretMemo(id) {
-      const pw = prompt('비밀글 비밀번호를 입력하세요:');
+      const pw = prompt('비밀글 작성 시 설정한 비밀번호를 입력하세요:');
       if (pw === null) return;
       if (!pw.trim()) return alert('비밀번호를 입력해 주세요.');
 
       try {
-        const res = await fetch(`/memos/${id}/unlock`, {
+        const res = await fetch('/memos/' + id + '/verify', {
           method: 'POST',
-          headers: { 'x-memo-password': pw.trim() }
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ password: pw.trim() })
         });
         const data = await res.json();
-        if (res.ok && data.success) {
-          unlockedPosts[id] = { memo: data.memo, img: data.img };
-          loadMemos();
-        } else {
-          alert(data.error || '비밀번호가 일치하지 않습니다.');
-        }
+        if (!res.ok) throw new Error(data.error || '비밀번호가 일치하지 않습니다.');
+
+        unlockedPosts[id] = {
+          memo: data.memo,
+          img: data.img,
+          password: pw.trim()
+        };
+        loadMemos();
       } catch (err) {
-        alert('서버 인증 중 오류가 발생했습니다.');
+        alert(err.message);
       }
     }
+
+    function openEditMemoBox(id) {
+      document.getElementById('memoView-' + id).style.display = 'none';
+      document.getElementById('memoEdit-' + id).style.display = 'block';
+    }
+
+    function closeEditMemoBox(id) {
+      document.getElementById('memoEdit-' + id).style.display = 'none';
+      document.getElementById('memoView-' + id).style.display = 'block';
+    }
+
+    async function saveEditedMemo(id) {
+      const newText = document.getElementById('editTextarea-' + id).value.trim();
+      if (!newText) return alert('수정할 내용을 입력해 주세요.');
+
+      const savedPw = unlockedPosts[id] ? unlockedPosts[id].password : '';
+      let authorPw = savedPw;
+
+      if (!adminPassword && !authorPw) {
+        authorPw = prompt('작성자 비밀번호를 입력하세요:') || '';
+      }
+
+      try {
+        const headers = { 'Content-Type': 'application/json' };
+        if (adminPassword) headers['x-admin-password'] = adminPassword;
+
+        const res = await fetch('/memos/' + id, {
+          method: 'PUT',
+          headers,
+          body: JSON.stringify({ password: authorPw, memo: newText })
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error || '수정에 실패했습니다.');
+
+        if (unlockedPosts[id]) {
+          unlockedPosts[id].memo = newText;
+        }
+        alert('문의 내용이 수정되었습니다.');
+        loadMemos();
+      } catch (err) {
+        alert(err.message);
+      }
+    }
+
+    memoForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const projectType = document.getElementById('aboutType').value;
+      const projectArea = document.getElementById('aboutArea').value;
+      const username = document.getElementById('username').value.trim();
+      const rawMemo = document.getElementById('memo').value.trim();
+      const isSecret = aboutSecret.checked;
+      const postPassword = aboutPostPw.value.trim();
+
+      if (!projectType || !projectArea || !username || !rawMemo) return;
+      if (isSecret && postPassword.length < 4) {
+        alert('비밀글 설정 시 4자리 이상의 비밀번호를 입력해 주세요.');
+        return;
+      }
+
+      const formattedMemo = '[' + projectType + ' / ' + projectArea + '] ' + rawMemo;
+      const submitBtn = document.getElementById('aboutSubmitBtn');
+      submitBtn.disabled = true;
+      submitBtn.textContent = '접수 중...';
+
+      try {
+        const res = await fetch('/memos', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            username,
+            memo: formattedMemo,
+            isSecret,
+            postPassword,
+            imageData: aboutCompressedImg
+          })
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error || '등록 중 오류가 발생했습니다.');
+
+        memoForm.reset();
+        aboutCompressedImg = '';
+        aboutFileStatus.textContent = '선택된 파일 없음';
+        aboutPreviewWrap.style.display = 'none';
+        aboutPostPw.style.display = 'none';
+        loadMemos();
+      } catch (err) {
+        alert(err.message);
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'CONTACT';
+      }
+    });
+
+    async function toggleMemoStatus(id) {
+      if (!adminPassword) return;
+      try {
+        const res = await fetch('/memos/' + id + '/status', {
+          method: 'PATCH',
+          headers: { 'x-admin-password': adminPassword }
+        });
+        if (res.ok) loadMemos();
+      } catch (err) {
+        alert('상태 변경 중 오류가 발생했습니다.');
+      }
+    }
+
+    async function deleteMemo(id) {
+      if (!adminPassword) return;
+      if (!confirm('이 문의글을 영구적으로 삭제하시겠습니까?')) return;
+      try {
+        const res = await fetch('/memos/' + id, {
+          method: 'DELETE',
+          headers: { 'x-admin-password': adminPassword }
+        });
+        if (res.ok) loadMemos();
+      } catch (err) {
+        alert('삭제 중 오류가 발생했습니다.');
+      }
+    }
+
+    function escapeHtml(str) {
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
+    updateAdminUI();
+    loadMemos();
+  </script>
+</body>
+</html>
