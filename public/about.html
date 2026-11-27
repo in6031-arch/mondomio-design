@@ -3,39 +3,50 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>소개 및 문의 | MONDOMIO DESIGN</title>
+  <title>About &amp; Project Request | MONDOMIO</title>
   <link rel="preconnect" href="https://googleapis.com">
   <link rel="preconnect" href="https://gstatic.com" crossorigin>
-  <link href="https://googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="/" class="logo">
-        <img src="/sample.jpg" alt="MONDOMIO DESIGN">
-      </a>
-      <nav class="main-nav">
-        <a href="/">포트폴리오</a>
-        <a href="/about.html" class="active">소개 및 문의</a>
+  <header class="site-header scrolled">
+    <div class="container header-three-col">
+      <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="메뉴 열기" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="main-nav left-nav" id="mainNav">
+        <a href="/#works">Works</a>
+        <a href="/about.html" class="active">About</a>
+        <a href="#aboutContactSection">Project request</a>
+        <a href="/#faq">FAQ</a>
       </nav>
+
+      <a href="/" class="brand-center-group">
+        <span class="brand-wordmark">MONDOMIO</span>
+        <span class="brand-meaning">Mondo Mio는 이탈리아어로 &lsquo;나의 세계(My World)&rsquo;라는 뜻입니다.</span>
+      </a>
+
+      <div class="header-right-spacer" aria-hidden="true"></div>
     </div>
   </header>
 
   <section class="hero">
     <div class="container">
-      <h1>About MONDOMIO DESIGN</h1>
-      <p>본질에 집중한 절제된 미학과 사용자의 동선을 배려한 디테일로 시간이 흘러도 가치 있는 공간을 설계합니다.</p>
+      <h1>About MONDOMIO</h1>
+      <p>이탈리아어 <em>Mondo</em>(세계)와 <em>Mio</em>(나의)의 결합 &mdash; 본질에 집중한 절제된 미학으로 나만의 온전한 공간 세계를 설계합니다.</p>
     </div>
   </section>
 
-  <!-- 스튜디오 소개 및 연혁 섹션 -->
   <section class="container studio-section">
     <div class="studio-grid">
       <div class="studio-story">
         <span class="category">Studio Philosophy</span>
         <h2>공간의 맥락과 빛을 읽는 건축·인테리어 스튜디오</h2>
-        <p>MONDOMIO DESIGN은 주거, 상업, 복합문화공간의 기획부터 건축 설계, 인테리어 시공 및 스타일링까지 아우르는 크리에이티브 디자인 그룹입니다.</p>
+        <p>MONDOMIO는 주거, 상업, 복합문화공간의 기획부터 건축 설계, 인테리어 시공 및 스타일링까지 아우르는 크리에이티브 디자인 그룹입니다.</p>
         <p>과장된 장식을 덜어내고 재료 본연의 질감과 자연광의 흐름을 극대화하여, 머무는 사람의 일상과 브랜드의 정체성이 온전히 드러나는 공간을 완성합니다.</p>
       </div>
       <div class="studio-history">
@@ -44,7 +55,7 @@
         <ul class="history-list">
           <li>
             <span class="year">2026</span>
-            <span class="event">MONDOMIO DESIGN 디지털 쇼룸 오픈 및 하이엔드 주거·상업 프로젝트 확장</span>
+            <span class="event">MONDOMIO 디지털 쇼룸 오픈 및 하이엔드 주거·상업 프로젝트 확장</span>
           </li>
           <li>
             <span class="year">2025</span>
@@ -56,14 +67,13 @@
           </li>
           <li>
             <span class="year">2023</span>
-            <span class="event">MONDOMIO DESIGN 건축·인테리어 스튜디오 설립</span>
+            <span class="event">MONDOMIO 건축·인테리어 스튜디오 설립</span>
           </li>
         </ul>
       </div>
     </div>
   </section>
 
-  <!-- 4단계 설계·시공 프로세스 섹션 -->
   <section class="process-section">
     <div class="container">
       <span class="category center-cat">Work Process</span>
@@ -92,133 +102,377 @@
       </div>
     </div>
   </section>
-  <!-- 기존 고객 문의 및 방명록 섹션 -->
-  <main class="container contact-section">
-    <div class="inquiry-box">
-      <h2 class="section-title">프로젝트 문의 및 방명록</h2>
-      <form id="memoForm">
-        <div class="form-group">
-          <label for="username">성함 / 업체명</label>
-          <input type="text" id="username" placeholder="예: 홍길동 / (주)몬도미오" required>
-        </div>
-        <div class="form-group">
-          <label for="memo">문의 내용 또는 방명록</label>
-          <textarea id="memo" rows="4" placeholder="공간 유형(주거/상업/신축), 위치, 예상 면적이나 궁금하신 내용을 자유롭게 남겨주세요." required></textarea>
-        </div>
-        <button type="submit" class="btn-submit">문의 등록하기</button>
-      </form>
-    </div>
+  <section id="aboutContactSection" class="dark-contact-section">
+    <div class="container dark-contact-inner">
+      <span class="dark-eyebrow">&bull; WE'RE HERE TO HELP YOU</span>
+      <h2 class="serif-heading light-text">We pursue space<br>Design<br>for relaxation</h2>
 
-    <div class="memo-list-wrapper">
-      <h3 class="list-subtitle">등록된 문의 및 방명록</h3>
-      <div id="memoList" class="memo-list">
-        <p class="empty-msg">불러오는 중...</p>
+      <form id="memoForm" class="dark-inquiry-form">
+        <div class="dark-select-grid">
+          <div class="dark-input-row">
+            <select id="aboutType" required>
+              <option value="" disabled selected>공간 유형 선택 (Project Type)</option>
+              <option value="건축 신축·리노베이션">건축 신축 · 리노베이션</option>
+              <option value="주거 공간 인테리어">주거 공간 인테리어</option>
+              <option value="상업·오피스 공간">상업 · 오피스 공간</option>
+              <option value="기타 공간 컨설팅">기타 공간 컨설팅</option>
+            </select>
+          </div>
+          <div class="dark-input-row">
+            <select id="aboutArea" required>
+              <option value="" disabled selected>예상 면적 선택 (Area)</option>
+              <option value="20평대 이하">20평대 이하 (약 66㎡ 이하)</option>
+              <option value="30~40평대">30~40평대 (약 99~132㎡)</option>
+              <option value="50~60평대">50~60평대 (약 165~198㎡)</option>
+              <option value="70평 이상 / 단독주택">70평 이상 / 단독주택·건물</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="dark-input-row">
+          <input type="text" id="username" placeholder="성함 / 업체명 (Name)" required>
+        </div>
+        <div class="dark-input-row">
+          <textarea id="memo" rows="2" placeholder="프로젝트 위치, 희망 시기 등 상세 문의 내용 (Memo)" required></textarea>
+        </div>
+
+        <div class="dark-file-box">
+          <label for="aboutFile" class="dark-file-label">
+            <span>📎 도면 / 현장 이미지 첨부 (JPG, PNG, WEBP · 최대 15MB)</span>
+            <span id="aboutFileStatus" class="file-status-text">선택된 파일 없음</span>
+          </label>
+          <input type="file" id="aboutFile" accept="image/jpeg,image/png,image/webp" style="display: none;">
+          <div id="aboutPreviewWrap" class="file-preview-wrap" style="display: none;">
+            <img id="aboutPreviewImg" src="" alt="첨부 도면 미리보기">
+            <button type="button" id="aboutFileClear" class="btn-file-clear">첨부 취소 ✕</button>
+          </div>
+        </div>
+
+        <div class="dark-secret-row">
+          <label class="agree-check">
+            <input type="checkbox" id="aboutSecret">
+            <span>🔒 비밀글로 등록 (작성자 및 관리자만 열람·수정 가능)</span>
+          </label>
+          <input type="password" id="aboutPostPw" class="dark-secret-pw" placeholder="글 비밀번호 (4자리 이상)" minlength="4" style="display: none;">
+        </div>
+
+        <div class="dark-agree-row">
+          <label class="agree-check">
+            <input type="checkbox" id="aboutAgree" required>
+            <span>개인정보 수집 및 이용 동의</span>
+          </label>
+          <a href="#memoBoardArea" class="board-link">아래 등록된 문의 목록 보기 ↓</a>
+        </div>
+
+        <button type="submit" class="btn-dark-submit" id="aboutSubmitBtn">CONTACT</button>
+      </form>
+
+      <div id="memoBoardArea" class="dark-board-wrapper">
+        <div class="dark-board-header">
+          <div class="list-title-group">
+            <h3 class="dark-board-title">등록된 문의 및 방명록</h3>
+            <span id="memoCountBadge" class="dark-count-badge">총 0건</span>
+          </div>
+          <div class="admin-control-area">
+            <button type="button" id="adminLoginBtn" class="btn-dark-admin">관리자 로그인</button>
+            <div id="adminActiveBox" class="admin-active-box" style="display: none;">
+              <span class="admin-status-pill">● 관리자 모드 활성</span>
+              <button type="button" id="adminLogoutBtn" class="btn-dark-logout">로그아웃</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="memoList" class="dark-memo-list">
+          <p class="dark-empty-msg">불러오는 중...</p>
+        </div>
       </div>
     </div>
-  </main>
+  </section>
 
-  <footer class="site-footer">
-    <div class="container">
-      <p>&copy; 2026 MONDOMIO DESIGN. All rights reserved.</p>
+  <div id="imageViewerModal" class="modal-overlay" aria-hidden="true">
+    <div class="modal-container" style="max-width: 760px;">
+      <button type="button" class="modal-close" id="viewerCloseBtn" aria-label="닫기">&times;</button>
+      <div style="padding: 20px; background: #111; text-align: center;">
+        <img id="viewerFullImg" src="" alt="첨부 도면 확대" style="max-width: 100%; max-height: 78vh; object-fit: contain;">
+      </div>
+    </div>
+  </div>
+
+  <footer class="editorial-footer">
+    <div class="container footer-top">
+      <a href="/" class="footer-wordmark">MONDOMIO</a>
+      <div class="footer-nav">
+        <a href="/#works">Works</a>
+        <a href="/about.html">About</a>
+        <a href="#aboutContactSection">Project request</a>
+        <a href="/#faq">FAQ</a>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <div class="footer-info">
+        <p>MONDOMIO | 건축 · 인테리어 디자인 스튜디오 (Mondo + Mio : 나만의 공간 세계)</p>
+        <p>상담 문의 및 프로젝트 의뢰: Project request 온라인 상담 접수</p>
+        <p class="copyright">&copy; 2026 MONDOMIO interior design group. All rights reserved.</p>
+      </div>
+      <div class="footer-motto"><p class="serif-motto">We aim for a<br>timeless interior.</p></div>
     </div>
   </footer>
-
   <script>
-    const memoForm = document.getElementById('memoForm');
-    const memoList = document.getElementById('memoList');
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mainNav = document.getElementById('mainNav');
 
-    async function loadMemos() {
-      try {
-        const res = await fetch('/memos');
-        const memos = await res.json();
-
-        if (!Array.isArray(memos) || memos.length === 0) {
-          memoList.innerHTML = '<p class="empty-msg">아직 등록된 문의가 없습니다. 첫 번째 글을 남겨보세요!</p>';
-          return;
-        }
-
-        memoList.innerHTML = memos.map(item => `
-          <div class="memo-item">
-            <div class="memo-header">
-              <strong class="memo-author">${escapeHtml(item.username)}</strong>
-              <div class="memo-meta">
-                <span class="memo-time">${escapeHtml(item.time || '')}</span>
-                <button type="button" class="btn-delete" onclick="deleteMemo(${item.id})">삭제</button>
-              </div>
-            </div>
-            <p class="memo-content">${escapeHtml(item.memo).replace(/\n/g, '<br>')}</p>
-          </div>
-        `).join('');
-      } catch (err) {
-        memoList.innerHTML = '<p class="empty-msg">목록을 불러오지 못했습니다.</p>';
-      }
+    if (mobileMenuBtn && mainNav) {
+      mobileMenuBtn.addEventListener('click', () => {
+        const isOpen = mainNav.classList.toggle('open');
+        mobileMenuBtn.classList.toggle('open', isOpen);
+        mobileMenuBtn.setAttribute('aria-expanded', String(isOpen));
+      });
+      mainNav.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => {
+          mainNav.classList.remove('open');
+          mobileMenuBtn.classList.remove('open');
+          mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        });
+      });
     }
 
-    memoForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const username = document.getElementById('username').value.trim();
-      const memo = document.getElementById('memo').value.trim();
-
-      if (!username || !memo) return;
-
-      try {
-        const res = await fetch('/memos', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ username, memo })
-        });
-
-        if (res.ok) {
-          memoForm.reset();
-          loadMemos();
-        } else {
-          alert('등록 중 오류가 발생했습니다.');
+    function compressAndValidateImage(file) {
+      return new Promise((resolve, reject) => {
+        const allowedTypes = ['image/jpeg', 'image/png', 'image/webp'];
+        if (!allowedTypes.includes(file.type)) {
+          return reject(new Error('첨부 오류: JPG, PNG, WEBP 형식의 도면 또는 사진 파일만 업로드할 수 있습니다.'));
         }
+        const maxBytes = 15 * 1024 * 1024;
+        if (file.size > maxBytes) {
+          return reject(new Error('첨부 오류: 파일 용량이 15MB를 초과했습니다. 15MB 이하의 이미지를 선택해 주세요.'));
+        }
+
+        const reader = new FileReader();
+        reader.onerror = () => reject(new Error('첨부 오류: 파일을 읽는 중 손상되었거나 접근할 수 없습니다.'));
+        reader.onload = (ev) => {
+          const img = new Image();
+          img.onerror = () => reject(new Error('첨부 오류: 손상된 이미지 파일입니다. 다른 파일을 선택해 주세요.'));
+          img.onload = () => {
+            const maxDim = 900;
+            let width = img.width;
+            let height = img.height;
+            if (width > maxDim || height > maxDim) {
+              if (width > height) {
+                height = Math.round((height * maxDim) / width);
+                width = maxDim;
+              } else {
+                width = Math.round((width * maxDim) / height);
+                height = maxDim;
+              }
+            }
+            const canvas = document.createElement('canvas');
+            canvas.width = width;
+            canvas.height = height;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(img, 0, 0, width, height);
+            resolve(canvas.toDataURL('image/jpeg', 0.72));
+          };
+          img.src = ev.target.result;
+        };
+        reader.readAsDataURL(file);
+      });
+    }
+
+    const aboutFile = document.getElementById('aboutFile');
+    const aboutFileStatus = document.getElementById('aboutFileStatus');
+    const aboutPreviewWrap = document.getElementById('aboutPreviewWrap');
+    const aboutPreviewImg = document.getElementById('aboutPreviewImg');
+    const aboutFileClear = document.getElementById('aboutFileClear');
+    const aboutSecret = document.getElementById('aboutSecret');
+    const aboutPostPw = document.getElementById('aboutPostPw');
+    let aboutCompressedImg = '';
+
+    aboutSecret.addEventListener('change', () => {
+      aboutPostPw.style.display = aboutSecret.checked ? 'block' : 'none';
+      aboutPostPw.required = aboutSecret.checked;
+      if (!aboutSecret.checked) aboutPostPw.value = '';
+    });
+
+    aboutFile.addEventListener('change', async (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+      try {
+        aboutFileStatus.textContent = '이미지 최적화 중...';
+        aboutCompressedImg = await compressAndValidateImage(file);
+        aboutFileStatus.textContent = `${file.name} (첨부 준비 완료)`;
+        aboutPreviewImg.src = aboutCompressedImg;
+        aboutPreviewWrap.style.display = 'flex';
       } catch (err) {
-        alert('서버 연결에 실패했습니다.');
+        alert(err.message);
+        aboutFile.value = '';
+        aboutCompressedImg = '';
+        aboutFileStatus.textContent = '선택된 파일 없음';
+        aboutPreviewWrap.style.display = 'none';
       }
     });
 
-    async function deleteMemo(id) {
-      const password = prompt('관리자 비밀번호를 입력하세요:');
-      if (password === null) return;
+    aboutFileClear.addEventListener('click', () => {
+      aboutFile.value = '';
+      aboutCompressedImg = '';
+      aboutFileStatus.textContent = '선택된 파일 없음';
+      aboutPreviewWrap.style.display = 'none';
+    });
 
-      if (!password.trim()) {
-        alert('비밀번호를 입력해 주세요.');
-        return;
+    const imageViewerModal = document.getElementById('imageViewerModal');
+    const viewerFullImg = document.getElementById('viewerFullImg');
+    const viewerCloseBtn = document.getElementById('viewerCloseBtn');
+
+    function openImageViewer(src) {
+      viewerFullImg.src = src;
+      imageViewerModal.classList.add('active');
+    }
+    viewerCloseBtn.addEventListener('click', () => imageViewerModal.classList.remove('active'));
+    imageViewerModal.addEventListener('click', (e) => {
+      if (e.target === imageViewerModal) imageViewerModal.classList.remove('active');
+    });
+
+    const memoForm = document.getElementById('memoForm');
+    const memoList = document.getElementById('memoList');
+    const memoCountBadge = document.getElementById('memoCountBadge');
+    const adminLoginBtn = document.getElementById('adminLoginBtn');
+    const adminActiveBox = document.getElementById('adminActiveBox');
+    const adminLogoutBtn = document.getElementById('adminLogoutBtn');
+
+    let adminPassword = sessionStorage.getItem('mondomio_admin_pw') || '';
+    const unlockedPosts = {};
+
+    function updateAdminUI() {
+      if (adminPassword) {
+        adminLoginBtn.style.display = 'none';
+        adminActiveBox.style.display = 'flex';
+      } else {
+        adminLoginBtn.style.display = 'inline-block';
+        adminActiveBox.style.display = 'none';
       }
+    }
+
+    adminLoginBtn.addEventListener('click', async () => {
+      const pw = prompt('관리자 비밀번호를 입력하세요:');
+      if (pw === null) return;
+      if (!pw.trim()) return alert('비밀번호를 입력해 주세요.');
 
       try {
-        const res = await fetch(`/memos/${id}`, {
-          method: 'DELETE',
-          headers: {
-            'x-admin-password': password
-          }
+        const res = await fetch('/admin/verify', {
+          method: 'POST',
+          headers: { 'x-admin-password': pw.trim() }
         });
-
-        const result = await res.json();
-
-        if (res.ok) {
-          alert('삭제되었습니다.');
+        const data = await res.json();
+        if (res.ok && data.success) {
+          adminPassword = pw.trim();
+          sessionStorage.setItem('mondomio_admin_pw', adminPassword);
+          updateAdminUI();
           loadMemos();
         } else {
-          alert(result.error || '삭제 권한이 없습니다.');
+          alert(data.error || '비밀번호가 일치하지 않습니다.');
         }
       } catch (err) {
-        alert('서버 통신 중 오류가 발생했습니다.');
+        alert('서버 인증 중 오류가 발생했습니다.');
+      }
+    });
+
+    adminLogoutBtn.addEventListener('click', () => {
+      adminPassword = '';
+      sessionStorage.removeItem('mondomio_admin_pw');
+      updateAdminUI();
+      loadMemos();
+    });
+
+    async function loadMemos() {
+      try {
+        const headers = {};
+        if (adminPassword) headers['x-admin-password'] = adminPassword;
+
+        const res = await fetch('/memos', { headers });
+        const memos = await res.json();
+
+        if (!Array.isArray(memos) || memos.length === 0) {
+          memoCountBadge.textContent = '총 0건';
+          memoList.innerHTML = '<p class="dark-empty-msg">아직 등록된 문의가 없습니다. 첫 번째 글을 남겨보세요!</p>';
+          return;
+        }
+
+        memoCountBadge.textContent = `총 ${memos.length}건`;
+
+        memoList.innerHTML = memos.map(item => {
+          const localUnlocked = unlockedPosts[item.id];
+          const isUnlocked = item.unlocked || Boolean(localUnlocked);
+          const displayMemo = localUnlocked ? localUnlocked.memo : item.memo;
+          const displayImg = localUnlocked ? localUnlocked.img : item.img;
+
+          return `
+            <div class="dark-memo-item ${item.completed ? 'completed' : ''}" id="memoCard-${item.id}">
+              <div class="memo-header">
+                <div class="memo-author-wrap">
+                  <strong class="dark-memo-author">${escapeHtml(item.username)}</strong>
+                  ${item.secret ? '<span class="status-badge secret">🔒 비밀글</span>' : ''}
+                  ${item.hasImage ? '<span class="status-badge file">📎 도면첨부</span>' : ''}
+                  ${item.completed ? '<span class="status-badge done">상담완료</span>' : '<span class="status-badge dark-pending">접수대기</span>'}
+                </div>
+                <div class="memo-meta">
+                  <span class="dark-memo-time">${escapeHtml(item.time || '')}</span>
+                  ${item.secret && !isUnlocked ? `
+                    <button type="button" class="btn-dark-unlock" onclick="unlockSecretMemo(${item.id})">비밀글 열람</button>
+                  ` : ''}
+                  ${item.secret && isUnlocked ? `
+                    <button type="button" class="btn-dark-edit" onclick="openEditMemoBox(${item.id})">내용 수정</button>
+                  ` : ''}
+                  ${adminPassword ? `
+                    <button type="button" class="btn-dark-status" onclick="toggleMemoStatus(${item.id})">
+                      ${item.completed ? '대기 전환' : '상담완료 처리'}
+                    </button>
+                    <button type="button" class="btn-dark-delete" onclick="deleteMemo(${item.id})">삭제</button>
+                  ` : ''}
+                </div>
+              </div>
+
+              <div id="memoView-${item.id}">
+                <p class="dark-memo-content ${item.secret && !isUnlocked ? 'locked' : ''}">${escapeHtml(displayMemo).replace(/\n/g, '<br>')}</p>
+                ${isUnlocked && displayImg ? `
+                  <div class="dark-attached-box" onclick="openImageViewer('${displayImg}')">
+                    <img src="${displayImg}" alt="첨부 도면 이미지">
+                    <span>🔍 클릭하여 도면 크게 보기</span>
+                  </div>
+                ` : ''}
+              </div>
+
+              <div id="memoEdit-${item.id}" class="dark-edit-box" style="display: none;">
+                <textarea id="editTextarea-${item.id}" rows="3">${escapeHtml(displayMemo)}</textarea>
+                <div class="inline-edit-actions">
+                  <button type="button" class="btn-dark-save" onclick="saveEditedMemo(${item.id})">수정 저장</button>
+                  <button type="button" class="btn-dark-cancel" onclick="closeEditMemoBox(${item.id})">취소</button>
+                </div>
+              </div>
+            </div>
+          `;
+        }).join('');
+      } catch (err) {
+        memoList.innerHTML = '<p class="dark-empty-msg">목록을 불러오지 못했습니다.</p>';
       }
     }
 
-    function escapeHtml(str) {
-      return String(str)
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;')
-        .replace(/'/g, '&#39;');
-    }
+    async function unlockSecretMemo(id) {
+      const pw = prompt('비밀글 비밀번호를 입력하세요:');
+      if (pw === null) return;
+      if (!pw.trim()) return alert('비밀번호를 입력해 주세요.');
 
-    loadMemos();
-  </script>
-</body>
-</html>
+      try {
+        const res = await fetch(`/memos/${id}/unlock`, {
+          method: 'POST',
+          headers: { 'x-memo-password': pw.trim() }
+        });
+        const data = await res.json();
+        if (res.ok && data.success) {
+          unlockedPosts[id] = { memo: data.memo, img: data.img };
+          loadMemos();
+        } else {
+          alert(data.error || '비밀번호가 일치하지 않습니다.');
+        }
+      } catch (err) {
+        alert('서버 인증 중 오류가 발생했습니다.');
+      }
+    }
