@@ -3,184 +3,372 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MONDOMIO DESIGN | 건축 & 인테리어 디자인 스튜디오</title>
+  <title>MONDOMIO DESIGN | Architects &amp; Interior Studio</title>
+  <link rel="preconnect" href="https://googleapis.com">
+  <link rel="preconnect" href="https://gstatic.com" crossorigin>
+  <link href="https://googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
   <header class="site-header">
     <div class="container header-inner">
-      <a href="/" class="logo">
-        <img src="/sample.jpg" alt="MONDOMIO DESIGN">
-      </a>
+      <a href="/" class="logo"><img src="/sample.jpg" alt="MONDOMIO DESIGN"></a>
       <nav class="main-nav">
-        <a href="/" class="active">포트폴리오</a>
-        <a href="/about.html">소개 및 문의</a>
+        <a href="#works">PORTFOLIO</a>
+        <a href="/about.html">ABOUT &amp; PROCESS</a>
+        <a href="#quickContact">CONTACT</a>
       </nav>
     </div>
   </header>
 
-  <section class="hero">
+  <section class="editorial-hero">
     <div class="container">
-      <h1>공간이 가진 본질의 아름다움을 설계합니다</h1>
-      <p>MONDOMIO DESIGN은 감각적인 건축 미학과 기능적인 인테리어 솔루션을 통해 브랜드와 삶의 가치를 높이는 공간 디자인 스튜디오입니다.</p>
-      <a href="/about.html" class="btn-primary">프로젝트 문의하기 →</a>
+      <div class="hero-headline-wrap">
+        <h1 class="serif-title">Creative Design Ability<br>and Technology <span class="accent-dot">.</span></h1>
+        <p class="hero-sub">공간의 본질과 빛의 흐름을 설계하는 건축·인테리어 디자인 스튜디오, MONDOMIO DESIGN</p>
+      </div>
+      <div class="hero-banner-frame zoom-frame"><img src="/work1.jpg" alt="MONDOMIO DESIGN 대표 건축 프로젝트"></div>
     </div>
   </section>
 
-  <main class="container works-section">
-    <h2 class="section-title">Selected Works</h2>
-    <div class="works-grid">
+  <section class="editorial-split">
+    <div class="container split-inner">
+      <div class="split-text">
+        <h2 class="serif-heading">Where beauty<br>and function<br>perfectly unite</h2>
+        <p>과장된 장식을 덜어내고 재료 본연의 질감과 사용자의 동선을 정교하게 조율하여, 시간이 흐를수록 깊이를 더하는 공간을 제안합니다.</p>
+        <a href="/about.html" class="editorial-link">VIEW MORE</a>
+      </div>
+      <div class="split-media zoom-frame"><img src="/work2.jpg" alt="한남동 미니멀 펜트하우스 인테리어"></div>
+    </div>
+  </section>
 
-      <article class="work-card" data-project-id="work1">
-        <div class="card-thumb">
-          <img src="/work1.jpg" alt="청담 모던 프라이빗 하우스">
-        </div>
-        <div class="card-body">
-          <span class="category">Architecture</span>
-          <h3>청담 모던 프라이빗 하우스</h3>
-          <p>자연채광과 노출 콘크리트의 조화를 극대화한 도심 속 프라이빗 단독주택 프로젝트</p>
-          <span class="view-detail">상세보기 →</span>
-        </div>
-      </article>
+  <section class="staggered-showcase">
+    <div class="container staggered-grid">
+      <div class="staggered-col col-left"><div class="staggered-img-box zoom-frame"><img src="/work3.jpg" alt="성수 아틀리에"></div></div>
+      <div class="staggered-col col-center">
+        <h2 class="serif-heading">Architects<br>And<br>Interior Studio</h2>
+        <span class="studio-badge">MONDOMIO DESIGN</span>
+        <p>주거 공간의 고요한 휴식부터 상업 공간의 브랜드 경험까지, 기획·설계·시공의 전 과정을 일관된 디렉팅으로 완성합니다.</p>
+        <a href="/about.html" class="editorial-link">VIEW MORE</a>
+      </div>
+      <div class="staggered-col col-right"><div class="staggered-img-box zoom-frame"><img src="/work1.jpg" alt="청담 프라이빗 하우스"></div></div>
+    </div>
+  </section>
 
-      <article class="work-card" data-project-id="work2">
-        <div class="card-thumb">
-          <img src="/work2.jpg" alt="한남동 미니멀 펜트하우스">
-        </div>
-        <div class="card-body">
-          <span class="category">Residential Interior</span>
-          <h3>한남동 미니멀 펜트하우스</h3>
-        <p>우드 텍스처와 여백의 미를 살려 절제된 우아함을 완성한 하이엔드 주거 공간</p>
-          <span class="view-detail">상세보기 →</span>
-        </div>
-      </article>
+  <main id="works" class="editorial-works">
+    <div class="container">
+      <div class="works-top-header"><h2 class="serif-heading">We provide Creative<br>Design for<br>your Home Project</h2></div>
 
-      <article class="work-card" data-project-id="work3">
-        <div class="card-thumb">
-          <img src="/work3.jpg" alt="성수 아틀리에 카페 & 라운지">
-        </div>
-        <div class="card-body">
-          <span class="category">Commercial Space</span>
-          <h3>성수 아틀리에 카페 & 라운지</h3>
-          <p>빈티지 인더스트리얼 구조물에 따뜻한 조명을 결합한 복합 문화 상업 인테리어</p>
-          <span class="view-detail">상세보기 →</span>
-        </div>
-      </article>
+      <div class="filter-tabs" role="tablist">
+        <button type="button" class="filter-btn" data-filter="all">전체 작업물 <span class="count-badge">(6)</span></button>
+        <button type="button" class="filter-btn" data-filter="Architecture">건축 <span class="count-badge">(2)</span></button>
+        <button type="button" class="filter-btn" data-filter="Residential Interior">주거 공간 <span class="count-badge">(2)</span></button>
+        <button type="button" class="filter-btn" data-filter="Commercial Space">상업 공간 <span class="count-badge">(2)</span></button>
+      </div>
 
+      <div class="works-showcase-layout">
+        <div class="works-side-caption" id="sideCaptionBox">
+          <span class="caption-label" id="sideCaptionTitle">Selected Works</span>
+          <p id="sideCaptionDesc">상단의 카테고리 버튼(전체 작업물, 건축, 주거 공간, 상업 공간)을 클릭하시면 해당 분야의 대표 프로젝트를 확인하실 수 있습니다.</p>
+          <a href="/about.html" class="editorial-link">PROJECT INQUIRY</a>
+        </div>
+
+        <div class="works-display-area">
+          <div id="worksPlaceholder" class="works-placeholder">
+            <p class="placeholder-title">카테고리를 선택해 주세요</p>
+            <p class="placeholder-sub">위 버튼을 클릭하시면 MONDOMIO DESIGN의 분야별 공간 포트폴리오가 펼쳐집니다.</p>
+          </div>
+          <div class="works-grid" id="worksGrid" style="display: none;"></div>
+        </div>
+      </div>
     </div>
   </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <p>&copy; 2026 MONDOMIO DESIGN. All rights reserved.</p>
+  <section id="quickContact" class="dark-contact-section">
+    <div class="container dark-contact-inner">
+      <span class="dark-eyebrow">&bull; WE'RE HERE TO HELP YOU</span>
+      <h2 class="serif-heading light-text">We pursue space<br>Design<br>for relaxation</h2>
+      <form id="quickInquiryForm" class="dark-inquiry-form">
+        <div class="dark-input-row"><input type="text" id="quickName" placeholder="성함 / 업체명 (Name)" required></div>
+        <div class="dark-input-row"><input type="text" id="quickMemo" placeholder="공간 유형, 위치, 예상 면적 등 간단한 문의 내용 (Memo)" required></div>
+        <div class="dark-agree-row">
+          <label class="agree-check"><input type="checkbox" id="quickAgree" required><span>개인정보 수집 및 이용 동의</span></label>
+          <a href="/about.html" class="board-link">전체 문의 목록 보기 →</a>
+        </div>
+        <button type="submit" class="btn-dark-submit">CONTACT</button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="editorial-footer">
+    <div class="container footer-top">
+      <div class="footer-brand"><img src="/sample.jpg" alt="MONDOMIO DESIGN"></div>
+      <div class="footer-nav">
+        <a href="#works">PORTFOLIO</a>
+        <a href="/about.html">ABOUT</a>
+        <a href="/about.html">PROCESS</a>
+        <a href="#quickContact">CONTACT</a>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <div class="footer-info">
+        <p>MONDOMIO DESIGN | 건축 · 인테리어 디자인 스튜디오</p>
+        <p>상담 문의 및 프로젝트 의뢰: 온라인 빠른 상담 접수</p>
+        <p class="copyright">&copy; 2026 MONDOMIO DESIGN. All rights reserved.</p>
+      </div>
+      <div class="footer-motto"><p class="serif-motto">We aim for a<br>timeless interior.</p></div>
     </div>
   </footer>
-
-  <!-- 포트폴리오 상세 팝업(모달) -->
   <div id="projectModal" class="modal-overlay" aria-hidden="true">
     <div class="modal-container">
       <button type="button" class="modal-close" id="modalCloseBtn" aria-label="닫기">&times;</button>
-      <div class="modal-image">
-        <img id="modalImg" src="" alt="프로젝트 상세 이미지">
-      </div>
+      <div class="modal-image zoom-frame"><img id="modalImg" src="" alt="프로젝트 상세 이미지"></div>
       <div class="modal-content">
         <span id="modalCategory" class="category"></span>
         <h2 id="modalTitle"></h2>
         <div class="project-specs">
-          <div class="spec-item">
-            <span class="spec-label">위치</span>
-            <span id="modalLocation" class="spec-value"></span>
-          </div>
-          <div class="spec-item">
-            <span class="spec-label">면적</span>
-            <span id="modalArea" class="spec-value"></span>
-          </div>
-          <div class="spec-item">
-            <span class="spec-label">설계·시공 기간</span>
-            <span id="modalPeriod" class="spec-value"></span>
-          </div>
+          <div class="spec-item"><span class="spec-label">위치</span><span id="modalLocation" class="spec-value"></span></div>
+          <div class="spec-item"><span class="spec-label">면적</span><span id="modalArea" class="spec-value"></span></div>
+          <div class="spec-item"><span class="spec-label">설계·시공 기간</span><span id="modalPeriod" class="spec-value"></span></div>
         </div>
         <p id="modalDesc" class="modal-description"></p>
-        <div class="modal-actions">
-          <a href="/about.html" class="btn-primary">유사 프로젝트 상담하기 →</a>
-        </div>
+        <div class="modal-actions"><a href="/about.html" class="btn-primary">유사 프로젝트 상담하기 →</a></div>
       </div>
     </div>
   </div>
 
   <script>
-    const projectsData = {
-      work1: {
+    const projects = [
+      {
+        id: "work1",
         category: "Architecture",
+        label: "건축 · Architecture",
         title: "청담 모던 프라이빗 하우스",
+        summary: "자연채광과 노출 콘크리트의 조화를 극대화한 도심 속 프라이빗 단독주택",
         img: "/work1.jpg",
         location: "서울특별시 강남구 청담동",
         area: "대지면적 231.4㎡ / 연면적 384.6㎡ (지상 3층)",
         period: "2025.03 - 2025.11 (8개월)",
-        desc: "도심 속에서도 프라이버시를 침해받지 않으면서 대지의 빛을 실내로 유입시키는 데 집중한 단독주택 프로젝트입니다. 노출 콘크리트와 웜 그레이 라임스톤을 조화시켜 시간이 지나도 변치 않는 건축적 무게감을 완성했습니다."
+        desc: "도심 속에서도 프라이버시를 침해받지 않으면서 대지의 빛을 실내로 유입시키는 데 집중한 단독주택 프로젝트입니다."
       },
-      work2: {
+      {
+        id: "work2",
         category: "Residential Interior",
+        label: "주거 공간 · Residential",
         title: "한남동 미니멀 펜트하우스",
+        summary: "우드 텍스처와 여백의 미를 살려 절제된 우아함을 완성한 하이엔드 주거 공간",
         img: "/work2.jpg",
         location: "서울특별시 용산구 한남동",
         area: "전용면적 198.3㎡ (60평형 인테리어)",
         period: "2025.06 - 2025.09 (3개월)",
-        desc: "우드 텍스처와 여백의 미를 살려 절제된 우아함을 완성한 하이엔드 주거 공간입니다. 불필요한 장식 요소를 배제하고 간접 조명과 천연 마감재의 디테일로 사계절의 빛이 머무는 공간을 구현했습니다."
+        desc: "우드 텍스처와 여백의 미를 살려 절제된 우아함을 완성한 하이엔드 주거 공간입니다."
       },
-      work3: {
+      {
+        id: "work3",
         category: "Commercial Space",
+        label: "상업 공간 · Commercial",
         title: "성수 아틀리에 카페 & 라운지",
+        summary: "빈티지 인더스트리얼 구조물에 따뜻한 조명을 결합한 복합 문화 상업 공간",
         img: "/work3.jpg",
         location: "서울특별시 성동구 성수동 2가",
         area: "1층 152.0㎡ / 2층 128.5㎡ (총 280.5㎡)",
         period: "2025.08 - 2025.12 (4개월)",
-        desc: "기존 성수동 공장의 거친 텍스처를 보존하면서 빈티지 인더스트리얼 구조물에 따뜻한 조명을 결합한 복합 문화 상업 인테리어입니다. 1층은 개방감 있는 로스터리 공간으로, 2층은 프라이빗 라운지로 구성했습니다."
+        desc: "빈티지 인더스트리얼 구조물에 따뜻한 조명을 결합한 복합 문화 상업 인테리어입니다."
+      },
+      {
+        id: "work4",
+        category: "Architecture",
+        label: "건축 · Architecture",
+        title: "해운대 달맞이 갤러리 하우스",
+        summary: "해안 경사지의 지형과 수평선을 파사드에 담아낸 모노리스 콘크리트 건축물",
+        img: "/work1.jpg",
+        location: "부산광역시 해운대구 달맞이길",
+        area: "대지면적 310.0㎡ / 연면적 442.8㎡ (지하 1층, 지상 2층)",
+        period: "2025.01 - 2025.10 (9개월)",
+        desc: "바다를 향한 파노라마 조망과 프라이빗 중정을 동시에 품은 해안가 모던 건축 프로젝트입니다."
+      },
+      {
+        id: "work5",
+        category: "Residential Interior",
+        label: "주거 공간 · Residential",
+        title: "판교 운중동 테라스 빌라",
+        summary: "천연 석재와 간접 조명으로 사계절의 변화를 실내로 끌어들인 주거 리모델링",
+        img: "/work2.jpg",
+        location: "경기도 성남시 분당구 운중동",
+        area: "전용면적 165.2㎡ (50평형 인테리어)",
+        period: "2025.04 - 2025.07 (3개월)",
+        desc: "불필요한 가벽을 철거하고 거실과 테라스의 경계를 허물어 개방감을 극대화한 주거 인테리어입니다."
+      },
+      {
+        id: "work6",
+        category: "Commercial Space",
+        label: "상업 공간 · Commercial",
+        title: "한남 플래그십 쇼룸 & 오피스",
+        summary: "브랜드의 아이덴티티를 미니멀한 동선과 오브제 연출로 구현한 하이엔드 쇼룸",
+        img: "/work3.jpg",
+        location: "서울특별시 용산구 이태원로",
+        area: "지상 1~2층 연면적 215.0㎡",
+        period: "2025.09 - 2025.12 (3개월)",
+        desc: "방문객이 브랜드 스토리를 자연스럽게 경험하도록 동선과 조도를 세밀하게 설계한 상업 공간입니다."
+      }
+    ];
+
+    const captionMap = {
+      all: {
+        title: "All Selected Works (6)",
+        desc: "MONDOMIO DESIGN이 완공한 건축, 하이엔드 주거 공간, 브랜드 상업 공간의 대표 포트폴리오 전체 목록입니다."
+      },
+      Architecture: {
+        title: "Architecture (2)",
+        desc: "대지의 맥락과 빛의 흐름을 분석하여 시간이 지나도 변치 않는 조형미를 구현하는 신축·리노베이션 건축 프로젝트입니다."
+      },
+      "Residential Interior": {
+        title: "Residential Interior (2)",
+        desc: "거주자의 라이프스타일과 동선을 반영하여 고요하고 깊이 있는 휴식을 선사하는 하이엔드 주거 인테리어입니다."
+      },
+      "Commercial Space": {
+        title: "Commercial Space (2)",
+        desc: "브랜드 고유의 철학을 공간 경험으로 전환하여 고객의 머무름과 가치를 높이는 상업 공간 디렉팅입니다."
       }
     };
 
-    const modal = document.getElementById('projectModal');
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const worksGrid = document.getElementById('worksGrid');
+    const worksPlaceholder = document.getElementById('worksPlaceholder');
+    const sideCaptionTitle = document.getElementById('sideCaptionTitle');
+    const sideCaptionDesc = document.getElementById('sideCaptionDesc');
+
+    const projectModal = document.getElementById('projectModal');
     const modalCloseBtn = document.getElementById('modalCloseBtn');
-    const workCards = document.querySelectorAll('.work-card');
+    const modalImg = document.getElementById('modalImg');
+    const modalCategory = document.getElementById('modalCategory');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalLocation = document.getElementById('modalLocation');
+    const modalArea = document.getElementById('modalArea');
+    const modalPeriod = document.getElementById('modalPeriod');
+    const modalDesc = document.getElementById('modalDesc');
 
-    function openModal(projectId) {
-      const data = projectsData[projectId];
-      if (!data) return;
+    let currentFilter = null;
 
-      document.getElementById('modalImg').src = data.img;
-      document.getElementById('modalImg').alt = data.title;
-      document.getElementById('modalCategory').textContent = data.category;
-      document.getElementById('modalTitle').textContent = data.title;
-      document.getElementById('modalLocation').textContent = data.location;
-      document.getElementById('modalArea').textContent = data.area;
-      document.getElementById('modalPeriod').textContent = data.period;
-      document.getElementById('modalDesc').textContent = data.desc;
+    function openProjectModal(projectId) {
+      const item = projects.find((p) => p.id === projectId);
+      if (!item) return;
 
-      modal.classList.add('open');
-      modal.setAttribute('aria-hidden', 'false');
+      modalImg.src = item.img;
+      modalImg.alt = item.title;
+      modalCategory.textContent = item.label;
+      modalTitle.textContent = item.title;
+      modalLocation.textContent = item.location;
+      modalArea.textContent = item.area;
+      modalPeriod.textContent = item.period;
+      modalDesc.textContent = item.desc;
+
+      projectModal.classList.add('active');
+      projectModal.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
     }
 
-    function closeModal() {
-      modal.classList.remove('open');
-      modal.setAttribute('aria-hidden', 'true');
+    function closeProjectModal() {
+      projectModal.classList.remove('active');
+      projectModal.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
     }
 
-    workCards.forEach(card => {
-      card.addEventListener('click', () => {
-        const id = card.getAttribute('data-project-id');
-        openModal(id);
+    function renderWorks(filter) {
+      const filtered = filter === 'all'
+        ? projects
+        : projects.filter((item) => item.category === filter);
+
+      worksGrid.innerHTML = filtered.map((item, idx) => `
+        <article class="work-card fade-in-card" data-id="${item.id}" style="animation-delay: ${idx * 0.08}s">
+          <div class="card-thumb">
+            <img src="${item.img}" alt="${item.title}">
+          </div>
+          <div class="card-body">
+            <span class="category">${item.label}</span>
+            <h3>${item.title}</h3>
+            <p>${item.summary}</p>
+            <span class="view-detail">VIEW DETAIL →</span>
+          </div>
+        </article>
+      `).join('');
+
+      worksPlaceholder.style.display = 'none';
+      worksGrid.style.display = 'grid';
+
+      if (captionMap[filter]) {
+        sideCaptionTitle.textContent = captionMap[filter].title;
+        sideCaptionDesc.textContent = captionMap[filter].desc;
+      }
+    }
+
+    filterBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const selected = btn.dataset.filter;
+
+        if (currentFilter === selected) {
+          currentFilter = null;
+          filterBtns.forEach((b) => b.classList.remove('active'));
+          worksGrid.style.display = 'none';
+          worksGrid.innerHTML = '';
+          worksPlaceholder.style.display = 'block';
+          sideCaptionTitle.textContent = 'Selected Works';
+          sideCaptionDesc.textContent = '상단의 카테고리 버튼(전체 작업물, 건축, 주거 공간, 상업 공간)을 클릭하시면 해당 분야의 대표 프로젝트를 확인하실 수 있습니다.';
+          return;
+        }
+
+        currentFilter = selected;
+        filterBtns.forEach((b) => b.classList.remove('active'));
+        btn.classList.add('active');
+        renderWorks(selected);
       });
     });
 
-    modalCloseBtn.addEventListener('click', closeModal);
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) closeModal();
+    // 카드 클릭 시 상세보기 모달 열기 (이벤트 위임)
+    worksGrid.addEventListener('click', (e) => {
+      const card = e.target.closest('.work-card');
+      if (card && card.dataset.id) {
+        openProjectModal(card.dataset.id);
+      }
+    });
+
+    // 모달 닫기 이벤트 (X 버튼, 배경 클릭, ESC 키)
+    modalCloseBtn.addEventListener('click', closeProjectModal);
+    projectModal.addEventListener('click', (e) => {
+      if (e.target === projectModal) {
+        closeProjectModal();
+      }
     });
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+      if (e.key === 'Escape' && projectModal.classList.contains('active')) {
+        closeProjectModal();
+      }
     });
+
+    // 하단 빠른 상담 폼 전송
+    const quickForm = document.getElementById('quickInquiryForm');
+    if (quickForm) {
+      quickForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const username = document.getElementById('quickName').value.trim();
+        const memo = document.getElementById('quickMemo').value.trim();
+
+        if (!username || !memo) return;
+
+        try {
+          const res = await fetch('/memos', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username, memo })
+          });
+          if (!res.ok) throw new Error('상담 등록에 실패했습니다.');
+          alert('상담 문의가 정상적으로 접수되었습니다. 담당 디자이너가 확인 후 연락드리겠습니다.');
+          quickForm.reset();
+        } catch (err) {
+          alert(err.message);
+        }
+      });
+    }
   </script>
 </body>
 </html>
