@@ -70,35 +70,72 @@
       <div class="staggered-col col-right"><div class="staggered-img-box zoom-frame"><img src="/work1.jpg" alt="청담 프라이빗 하우스"></div></div>
     </div>
   </section>
+
   <main id="works" class="editorial-works">
     <div class="container">
-      <div class="works-top-header"><h2 class="serif-heading">We provide Creative<br>Design for<br>your Home Project</h2></div>
+      <div class="works-top-header">
+        <h2 class="serif-heading">We provide Creative<br>Design for<br>your Home Project</h2>
+      </div>
 
       <div class="filter-tabs" role="tablist">
-        <button type="button" class="filter-btn" data-filter="all">전체 작업물 <span class="count-badge">(6)</span></button>
+        <button type="button" class="filter-btn active" data-filter="all">전체 작업물 <span class="count-badge">(6)</span></button>
         <button type="button" class="filter-btn" data-filter="Architecture">건축 <span class="count-badge">(2)</span></button>
         <button type="button" class="filter-btn" data-filter="Residential Interior">주거 공간 <span class="count-badge">(2)</span></button>
         <button type="button" class="filter-btn" data-filter="Commercial Space">상업 공간 <span class="count-badge">(2)</span></button>
       </div>
 
+      <div class="detail-filter-panel">
+        <div class="detail-filter-group">
+          <span class="filter-group-label">평수별</span>
+          <div class="sub-filter-chips" data-group="size">
+            <button type="button" class="sub-chip active" data-val="all">전체</button>
+            <button type="button" class="sub-chip" data-val="20평대">20평대</button>
+            <button type="button" class="sub-chip" data-val="30~40평대">30~40평대</button>
+            <button type="button" class="sub-chip" data-val="50평대 이상">50평대 이상</button>
+          </div>
+        </div>
+
+        <div class="detail-filter-group">
+          <span class="filter-group-label">공간별</span>
+          <div class="sub-filter-chips" data-group="space">
+            <button type="button" class="sub-chip active" data-val="all">전체</button>
+            <button type="button" class="sub-chip" data-val="거실">거실</button>
+            <button type="button" class="sub-chip" data-val="주방">주방</button>
+            <button type="button" class="sub-chip" data-val="욕실">욕실</button>
+            <button type="button" class="sub-chip" data-val="외부·파사드">외부·파사드</button>
+          </div>
+        </div>
+
+        <div class="detail-filter-group">
+          <span class="filter-group-label">스타일별</span>
+          <div class="sub-filter-chips" data-group="style">
+            <button type="button" class="sub-chip active" data-val="all">전체</button>
+            <button type="button" class="sub-chip" data-val="모던">모던</button>
+            <button type="button" class="sub-chip" data-val="미니멀">미니멀</button>
+            <button type="button" class="sub-chip" data-val="우드">우드</button>
+          </div>
+        </div>
+
+        <button type="button" id="resetSubFiltersBtn" class="btn-reset-filters">필터 초기화 ↺</button>
+      </div>
+
       <div class="works-showcase-layout">
         <div class="works-side-caption" id="sideCaptionBox">
-          <span class="caption-label" id="sideCaptionTitle">Selected Works</span>
-          <p id="sideCaptionDesc">상단의 카테고리 버튼(전체 작업물, 건축, 주거 공간, 상업 공간)을 클릭하시면 해당 분야의 대표 프로젝트를 확인하실 수 있습니다.</p>
+          <span class="caption-label" id="sideCaptionTitle">All Selected Works (6)</span>
+          <p id="sideCaptionDesc">분야, 평수별, 공간별, 스타일별 조건을 선택하시면 원하는 시공사례를 즉시 확인하실 수 있습니다. 각 사례를 클릭하면 Before &amp; After 비교와 무드보드 제안서를 확인하실 수 있습니다.</p>
           <a href="/about.html#aboutContactSection" class="editorial-link">PROJECT REQUEST</a>
         </div>
 
         <div class="works-display-area">
-          <div id="worksPlaceholder" class="works-placeholder">
-            <p class="placeholder-title">카테고리를 선택해 주세요</p>
-            <p class="placeholder-sub">위 버튼을 클릭하시면 MONDOMIO의 분야별 공간 포트폴리오가 펼쳐집니다.</p>
+          <div id="worksPlaceholder" class="works-placeholder" style="display: none;">
+            <p class="placeholder-title">선택하신 조건에 일치하는 시공사례가 없습니다</p>
+            <p class="placeholder-sub">상단 필터 조건을 변경하거나 '필터 초기화' 버튼을 눌러 전체 사례를 확인해 주세요.</p>
           </div>
-          <div class="works-grid" id="worksGrid" style="display: none;"></div>
+          <div class="works-grid" id="worksGrid"></div>
         </div>
       </div>
     </div>
   </main>
-
   <section id="faq" class="editorial-faq">
     <div class="container faq-layout">
       <div class="faq-header-col">
@@ -183,19 +220,74 @@
   </footer>
 
   <div id="projectModal" class="modal-overlay" aria-hidden="true">
-    <div class="modal-container">
+    <div class="modal-container modal-wide">
       <button type="button" class="modal-close" id="modalCloseBtn" aria-label="닫기">&times;</button>
-      <div class="modal-image zoom-frame"><img id="modalImg" src="" alt="프로젝트 상세 이미지"></div>
-      <div class="modal-content">
-        <span id="modalCategory" class="category"></span>
-        <h2 id="modalTitle"></h2>
-        <div class="project-specs">
-          <div class="spec-item"><span class="spec-label">위치</span><span id="modalLocation" class="spec-value"></span></div>
-          <div class="spec-item"><span class="spec-label">면적</span><span id="modalArea" class="spec-value"></span></div>
-          <div class="spec-item"><span class="spec-label">설계·시공 기간</span><span id="modalPeriod" class="spec-value"></span></div>
+
+      <div class="ba-compare-wrapper">
+        <div class="ba-compare-header">
+          <span class="ba-guide-text">🖱️ 이미지 위에서 마우스 휠을 위·아래로 움직이면 시공 전(Before)과 시공 후(After)가 동시에 상·하 스크롤됩니다.</span>
         </div>
+        <div class="ba-split-grid">
+          <div class="ba-pane">
+            <span class="ba-badge before">BEFORE · 시공 전</span>
+            <div class="ba-scroll-viewport" id="beforeScrollBox">
+              <img id="modalBeforeImg" src="" alt="시공 전 이미지">
+            </div>
+          </div>
+          <div class="ba-pane">
+            <span class="ba-badge after">AFTER · 시공 후</span>
+            <div class="ba-scroll-viewport" id="afterScrollBox">
+              <img id="modalAfterImg" src="" alt="시공 후 이미지">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-content">
+        <div class="modal-tag-row">
+          <span id="modalCategory" class="category"></span>
+          <span id="modalFilterTags" class="modal-sub-tags"></span>
+        </div>
+        <h2 id="modalTitle"></h2>
+
+        <div class="project-specs extended">
+          <div class="spec-item"><span class="spec-label">위치</span><span id="modalLocation" class="spec-value"></span></div>
+          <div class="spec-item"><span class="spec-label">면적 (평수)</span><span id="modalArea" class="spec-value"></span></div>
+          <div class="spec-item"><span class="spec-label">시공 기간</span><span id="modalPeriod" class="spec-value"></span></div>
+          <div class="spec-item spec-span-2"><span class="spec-label">사용된 자재 정보</span><span id="modalMaterials" class="spec-value"></span></div>
+          <div class="spec-item"><span class="spec-label">대략적인 공사 범위</span><span id="modalScope" class="spec-value"></span></div>
+        </div>
+
         <p id="modalDesc" class="modal-description"></p>
-        <div class="modal-actions"><a href="/about.html#aboutContactSection" class="btn-primary">유사 프로젝트 상담하기 →</a></div>
+
+        <div class="modal-actions dual-actions">
+          <a href="/about.html#aboutContactSection" class="btn-primary">유사 프로젝트 상담하기 →</a>
+          <button type="button" id="toggleMoodboardBtn" class="btn-moodboard-banner">
+            <span>무드보드 제안서</span>
+            <span id="moodboardArrow">▾</span>
+          </button>
+        </div>
+
+        <div id="moodboardSheet" class="moodboard-sheet" style="display: none;">
+          <div class="moodboard-sheet-header">
+            <div>
+              <span class="category">DESIGN MOODBOARD PROPOSAL</span>
+              <h3 id="moodboardTitle">공간 컨셉 &amp; 마감재 무드보드 제안서</h3>
+            </div>
+            <a href="/about.html#aboutContactSection" class="editorial-link">이 무드로 견적 문의 →</a>
+          </div>
+          <p id="moodboardConcept" class="moodboard-concept-desc"></p>
+          <div class="moodboard-grid">
+            <div class="moodboard-palette-box">
+              <span class="spec-label">KEY COLOR PALETTE</span>
+              <div id="moodboardSwatches" class="palette-swatches"></div>
+            </div>
+            <div class="moodboard-finish-box">
+              <span class="spec-label">MATERIAL &amp; LIGHTING GUIDE</span>
+              <ul id="moodboardNotes" class="moodboard-notes-list"></ul>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -248,22 +340,215 @@
     });
 
     const projects = [
-      { id: "work1", category: "Architecture", label: "건축 · Architecture", title: "청담 모던 프라이빗 하우스", summary: "자연채광과 노출 콘크리트의 조화를 극대화한 도심 속 프라이빗 단독주택", img: "/work1.jpg", location: "서울특별시 강남구 청담동", area: "대지면적 231.4㎡ / 연면적 384.6㎡ (지상 3층)", period: "2025.03 - 2025.11 (8개월)", desc: "도심 속에서도 프라이버시를 침해받지 않으면서 대지의 빛을 실내로 유입시키는 데 집중한 단독주택 프로젝트입니다." },
-      { id: "work2", category: "Residential Interior", label: "주거 공간 · Residential", title: "한남동 미니멀 펜트하우스", summary: "우드 텍스처와 여백의 미를 살려 절제된 우아함을 완성한 하이엔드 주거 공간", img: "/work2.jpg", location: "서울특별시 용산구 한남동", area: "전용면적 198.3㎡ (60평형 인테리어)", period: "2025.06 - 2025.09 (3개월)", desc: "우드 텍스처와 여백의 미를 살려 절제된 우아함을 완성한 하이엔드 주거 공간입니다." },
-      { id: "work3", category: "Commercial Space", label: "상업 공간 · Commercial", title: "성수 아틀리에 카페 & 라운지", summary: "빈티지 인더스트리얼 구조물에 따뜻한 조명을 결합한 복합 문화 상업 공간", img: "/work3.jpg", location: "서울특별시 성동구 성수동 2가", area: "1층 152.0㎡ / 2층 128.5㎡ (총 280.5㎡)", period: "2025.08 - 2025.12 (4개월)", desc: "빈티지 인더스트리얼 구조물에 따뜻한 조명을 결합한 복합 문화 상업 인테리어입니다." },
-      { id: "work4", category: "Architecture", label: "건축 · Architecture", title: "해운대 달맞이 갤러리 하우스", summary: "해안 경사지의 지형과 수평선을 파사드에 담아낸 모노리스 콘크리트 건축물", img: "/work1.jpg", location: "부산광역시 해운대구 달맞이길", area: "대지면적 310.0㎡ / 연면적 442.8㎡ (지하 1층, 지상 2층)", period: "2025.01 - 2025.10 (9개월)", desc: "바다를 향한 파노라마 조망과 프라이빗 중정을 동시에 품은 해안가 모던 건축 프로젝트입니다." },
-      { id: "work5", category: "Residential Interior", label: "주거 공간 · Residential", title: "판교 운중동 테라스 빌라", summary: "천연 석재와 간접 조명으로 사계절의 변화를 실내로 끌어들인 주거 리모델링", img: "/work2.jpg", location: "경기도 성남시 분당구 운중동", area: "전용면적 165.2㎡ (50평형 인테리어)", period: "2025.04 - 2025.07 (3개월)", desc: "불필요한 가벽을 철거하고 거실과 테라스의 경계를 허물어 개방감을 극대화한 주거 인테리어입니다." },
-      { id: "work6", category: "Commercial Space", label: "상업 공간 · Commercial", title: "한남 플래그십 쇼룸 & 오피스", summary: "브랜드의 아이덴티티를 미니멀한 동선과 오브제 연출로 구현한 하이엔드 쇼룸", img: "/work3.jpg", location: "서울특별시 용산구 이태원로", area: "지상 1~2층 연면적 215.0㎡", period: "2025.09 - 2025.12 (3개월)", desc: "방문객이 브랜드 스토리를 자연스럽게 경험하도록 동선과 조도를 세밀하게 설계한 상업 공간입니다." }
+      {
+        id: "work1",
+        category: "Architecture",
+        label: "건축 · Architecture",
+        sizeTag: "50평대 이상",
+        spaceTag: "외부·파사드",
+        styleTag: "모던",
+        title: "청담 모던 프라이빗 하우스",
+        summary: "자연채광과 노출 콘크리트의 조화를 극대화한 도심 속 프라이빗 단독주택",
+        img: "/work1.jpg",
+        beforeImg: "/work3.jpg",
+        afterImg: "/work1.jpg",
+        location: "서울특별시 강남구 청담동",
+        area: "대지면적 231.4㎡ / 연면적 384.6㎡ (116평형)",
+        period: "2025.03 - 2025.11 (8개월)",
+        materials: "송판 노출 콘크리트, 현무암 버너구이 석재, 이건 알루미늄 시스템 창호, 오크 원목 루버",
+        scope: "기존 노후 주택 철거 후 신축 골조·외장·조경·실내 인테리어 일괄(Turn-key)",
+        desc: "도심 속에서도 프라이버시를 침해받지 않으면서 대지의 빛을 실내로 유입시키는 데 집중한 단독주택 프로젝트입니다.",
+        moodboard: {
+          concept: "차분한 노출 콘크리트의 질감 위에 따뜻한 오크 우드와 2700K 간접 조명을 더해 고요하고 깊이 있는 사적 안식처를 구현했습니다.",
+          colors: [
+            { name: "Raw Concrete", hex: "#8E8D8A" },
+            { name: "Warm Oak", hex: "#A68A64" },
+            { name: "Basalt Charcoal", hex: "#2E2E2E" },
+            { name: "Warm Linen", hex: "#EDE8DF" }
+          ],
+          notes: [
+            "벽체: 무광 스투코 도장 및 송판 노출 콘크리트 발수 코팅",
+            "바닥: 600×1200 포세린 무광 타일 및 광폭 원목마루",
+            "조명: 2700K 매입 라인 조명 및 눈부심 방지 다운라이트"
+          ]
+        }
+      },
+      {
+        id: "work2",
+        category: "Residential Interior",
+        label: "주거 공간 · Residential",
+        sizeTag: "50평대 이상",
+        spaceTag: "거실",
+        styleTag: "우드",
+        title: "한남동 미니멀 펜트하우스",
+        summary: "우드 텍스처와 여백의 미를 살려 절제된 우아함을 완성한 하이엔드 주거 공간",
+        img: "/work2.jpg",
+        beforeImg: "/work3.jpg",
+        afterImg: "/work2.jpg",
+        location: "서울특별시 용산구 한남동",
+        area: "전용면적 198.3㎡ (60평형 인테리어)",
+        period: "2025.06 - 2025.09 (3개월)",
+        materials: "천연 월넛 무늬목, 이탈리아 트래버틴 대리석, 벤자민무어 친환경 도장, 융(JUNG) 스위치",
+        scope: "전체 철거, 단열·창호 교체, 거실·주방·마스터룸 구조 변경 및 제작 가구 시공",
+        desc: "우드 텍스처와 여백의 미를 살려 절제된 우아함을 완성한 하이엔드 주거 공간입니다.",
+        moodboard: {
+          concept: "천연 월넛 우드의 묵직한 결감과 베이지 트래버틴 석재의 부드러운 톤온톤 배색으로 갤러리 같은 거실 무드를 제안합니다.",
+          colors: [
+            { name: "Deep Walnut", hex: "#5C4033" },
+            { name: "Travertine Beige", hex: "#D8CFC0" },
+            { name: "Soft Ivory", hex: "#F5F2EB" },
+            { name: "Brushed Bronze", hex: "#7A6A58" }
+          ],
+          notes: [
+            "월패널: 천연 월넛 무늬목 히든 도어 및 우드 실링 마감",
+            "아트월: 베이지 트래버틴 천연 석재 슬랩 시공",
+            "가구: 공간 비례에 맞춘 매립형 제작 수납장"
+          ]
+        }
+      },
+      {
+        id: "work3",
+        category: "Commercial Space",
+        label: "상업 공간 · Commercial",
+        sizeTag: "50평대 이상",
+        spaceTag: "주방",
+        styleTag: "모던",
+        title: "성수 아틀리에 카페 & 라운지",
+        summary: "빈티지 인더스트리얼 구조물에 따뜻한 조명을 결합한 복합 문화 상업 공간",
+        img: "/work3.jpg",
+        beforeImg: "/work1.jpg",
+        afterImg: "/work3.jpg",
+        location: "서울특별시 성동구 성수동 2가",
+        area: "1층 152.0㎡ / 2층 128.5㎡ (85평형)",
+        period: "2025.08 - 2025.12 (4개월)",
+        materials: "헤어라인 스테인리스 스틸, 에폭시 라이닝 바닥, 테라코타 브릭, 제작 아크릴 조명",
+        scope: "용도변경 인허가, 상업용 주방 바(Bar) 설비·공조, 파사드 및 1·2층 전체 인테리어",
+        desc: "빈티지 인더스트리얼 구조물에 따뜻한 조명을 결합한 복합 문화 상업 인테리어입니다.",
+        moodboard: {
+          concept: "기존 붉은 벽돌과 거친 콘크리트 골조를 보존하면서 정교한 스테인리스 바 카운터와 호박색 조명으로 대비감을 극대화했습니다.",
+          colors: [
+            { name: "Brushed Steel", hex: "#B4B8BC" },
+            { name: "Seongsu Brick", hex: "#8C4A32" },
+            { name: "Amber Glow", hex: "#D49B54" },
+            { name: "Graphite Floor", hex: "#3B3C3E" }
+          ],
+          notes: [
+            "바 카운터: 4T 헤어라인 스테인리스 상판 및 간접 하부 조명",
+            "벽체: 기존 조적 면 정리 후 무광 투명 코팅 마감",
+            "동선: 테이크아웃 픽업존과 2층 라운지 체류 동선 분리"
+          ]
+        }
+      },
+      {
+        id: "work4",
+        category: "Architecture",
+        label: "건축 · Architecture",
+        sizeTag: "50평대 이상",
+        spaceTag: "외부·파사드",
+        styleTag: "미니멀",
+        title: "해운대 달맞이 갤러리 하우스",
+        summary: "해안 경사지의 지형과 수평선을 파사드에 담아낸 모노리스 콘크리트 건축물",
+        img: "/work1.jpg",
+        beforeImg: "/work2.jpg",
+        afterImg: "/work1.jpg",
+        location: "부산광역시 해운대구 달맞이길",
+        area: "대지면적 310.0㎡ / 연면적 442.8㎡ (134평형)",
+        period: "2025.01 - 2025.10 (9개월)",
+        materials: "고내후성 백색 스터코, 로이 삼중유리 커튼월, 라임스톤 데크, 내염해 알루미늄 패널",
+        scope: "지하 1층~지상 2층 신축 건축 설계·시공 및 해안 조망 테라스·중정 조경",
+        desc: "바다를 향한 파노라마 조망과 프라이빗 중정을 동시에 품은 해안가 모던 건축 프로젝트입니다.",
+        moodboard: {
+          concept: "해운대 수평선과 햇빛의 반사를 담아내는 백색 미니멀 매스와 모래빛 라임스톤으로 휴양지 갤러리 같은 건축물을 완성했습니다.",
+          colors: [
+            { name: "Chalk White", hex: "#F7F6F2" },
+            { name: "Sand Limestone", hex: "#D5CCB8" },
+            { name: "Aegean Slate", hex: "#5A6B7C" },
+            { name: "Matte Silver", hex: "#C2C5C8" }
+          ],
+          notes: [
+            "외장: 염분에 강한 고내후성 실리콘 스터코 및 라임스톤",
+            "개구부: 바다 조망을 극대화하는 프레임리스 대형 픽스창",
+            "중정: 바람을 막아주는 반외부 프라이빗 테라스 설계"
+          ]
+        }
+      },
+      {
+        id: "work5",
+        category: "Residential Interior",
+        label: "주거 공간 · Residential",
+        sizeTag: "30~40평대",
+        spaceTag: "욕실",
+        styleTag: "미니멀",
+        title: "판교 운중동 테라스 빌라",
+        summary: "천연 석재와 간접 조명으로 사계절의 변화를 실내로 끌어들인 주거 리모델링",
+        img: "/work2.jpg",
+        beforeImg: "/work1.jpg",
+        afterImg: "/work2.jpg",
+        location: "경기도 성남시 분당구 운중동",
+        area: "전용면적 132.2㎡ (40평형 인테리어)",
+        period: "2025.04 - 2025.07 (3개월)",
+        materials: "이탈리아 대형 포세린 타일, 무몰딩 히든 도어, 매립 수전(제시/그로헤), 오크 강마루",
+        scope: "거실·주방 확장, 마스터 욕실 조적 욕조 신설, 전체 무몰딩 도장 및 조명 설계",
+        desc: "불필요한 가벽을 철거하고 거실과 테라스의 경계를 허물어 개방감을 극대화한 주거 인테리어입니다.",
+        moodboard: {
+          concept: "문선과 걸레받이를 없앤 무몰딩 화이트 톤과 호텔식 조적 욕실의 스톤 텍스처로 군더더기 없는 미니멀리즘을 구현했습니다.",
+          colors: [
+            { name: "Pure Plaster", hex: "#F2F0EC" },
+            { name: "Greige Stone", hex: "#B8B2A6" },
+            { name: "Light Ash", hex: "#CBB89D" },
+            { name: "Brushed Nickel", hex: "#9E9E9E" }
+          ],
+          notes: [
+            "욕실: 600×1200 포세린 졸리컷 마감 및 매립형 레인샤워",
+            "벽·천장: 전체 무몰딩 퍼티·도장 및 마그네틱 트랙 조명",
+            "주방: 아일랜드 대면형 구조 변경 및 빌트인 가전 라인업"
+          ]
+        }
+      },
+      {
+        id: "work6",
+        category: "Commercial Space",
+        label: "상업 공간 · Commercial",
+        sizeTag: "20평대",
+        spaceTag: "거실",
+        styleTag: "우드",
+        title: "한남 프라이빗 쇼룸 & 오피스",
+        summary: "브랜드의 아이덴티티를 미니멀한 동선과 오브제 연출로 구현한 하이엔드 쇼룸",
+        img: "/work3.jpg",
+        beforeImg: "/work2.jpg",
+        afterImg: "/work3.jpg",
+        location: "서울특별시 용산구 이태원로",
+        area: "전용면적 89.2㎡ (27평형)",
+        period: "2025.09 - 2025.11 (2개월)",
+        materials: "애쉬 원목 루버, 마이크로시멘트 바닥, 패브릭 흡음 패널, 맞춤 제작 디스플레이 테이블",
+        scope: "소형 상업 쇼룸 및 VIP 상담 라운지 레이아웃, 파사드 쇼윈도 및 집기 일체",
+        desc: "방문객이 브랜드 스토리를 자연스럽게 경험하도록 동선과 조도를 세밀하게 설계한 상업 공간입니다.",
+        moodboard: {
+          concept: "20평대 컴팩트한 면적을 넓어 보이게 하는 밝은 애쉬 우드와 마이크로시멘트의 연속성으로 브랜드 오브제를 돋보이게 했습니다.",
+          colors: [
+            { name: "Natural Ash", hex: "#D6C3A5" },
+            { name: "Micro Cement", hex: "#C5C2BC" },
+            { name: "Warm Sand", hex: "#E6DFD3" },
+            { name: "Espresso Accent", hex: "#3E3229" }
+          ],
+          notes: [
+            "바닥: 이음새 없는 그레이지 마이크로시멘트 마감",
+            "집기: 애쉬 원목과 유리 조합의 모듈형 디스플레이 집기",
+            "조명: 연색성(CRI 95+) 스포트라이트로 제품 질감 강조"
+          ]
+        }
+      }
     ];
-
     const captionMap = {
-      all: { title: "All Selected Works (6)", desc: "MONDOMIO가 완공한 건축, 하이엔드 주거 공간, 브랜드 상업 공간의 대표 포트폴리오 전체 목록입니다." },
+      all: { title: "All Selected Works (6)", desc: "분야, 평수별, 공간별, 스타일별 조건을 선택하시면 원하는 시공사례를 즉시 확인하실 수 있습니다." },
       Architecture: { title: "Architecture (2)", desc: "대지의 맥락과 빛의 흐름을 분석하여 시간이 지나도 변치 않는 조형미를 구현하는 신축·리노베이션 건축 프로젝트입니다." },
       "Residential Interior": { title: "Residential Interior (2)", desc: "거주자의 라이프스타일과 동선을 반영하여 고요하고 깊이 있는 휴식을 선사하는 하이엔드 주거 인테리어입니다." },
       "Commercial Space": { title: "Commercial Space (2)", desc: "브랜드 고유의 철학을 공간 경험으로 전환하여 고객의 머무름과 가치를 높이는 상업 공간 디렉팅입니다." }
     };
 
     const filterBtns = document.querySelectorAll('.filter-btn');
+    const subFilterChips = document.querySelectorAll('.sub-chip');
+    const resetSubFiltersBtn = document.getElementById('resetSubFiltersBtn');
     const worksGrid = document.getElementById('worksGrid');
     const worksPlaceholder = document.getElementById('worksPlaceholder');
     const sideCaptionTitle = document.getElementById('sideCaptionTitle');
@@ -271,27 +556,94 @@
 
     const projectModal = document.getElementById('projectModal');
     const modalCloseBtn = document.getElementById('modalCloseBtn');
-    const modalImg = document.getElementById('modalImg');
+    const beforeScrollBox = document.getElementById('beforeScrollBox');
+    const afterScrollBox = document.getElementById('afterScrollBox');
+    const modalBeforeImg = document.getElementById('modalBeforeImg');
+    const modalAfterImg = document.getElementById('modalAfterImg');
     const modalCategory = document.getElementById('modalCategory');
+    const modalFilterTags = document.getElementById('modalFilterTags');
     const modalTitle = document.getElementById('modalTitle');
     const modalLocation = document.getElementById('modalLocation');
     const modalArea = document.getElementById('modalArea');
     const modalPeriod = document.getElementById('modalPeriod');
+    const modalMaterials = document.getElementById('modalMaterials');
+    const modalScope = document.getElementById('modalScope');
     const modalDesc = document.getElementById('modalDesc');
 
-    let currentFilter = null;
+    const toggleMoodboardBtn = document.getElementById('toggleMoodboardBtn');
+    const moodboardArrow = document.getElementById('moodboardArrow');
+    const moodboardSheet = document.getElementById('moodboardSheet');
+    const moodboardTitle = document.getElementById('moodboardTitle');
+    const moodboardConcept = document.getElementById('moodboardConcept');
+    const moodboardSwatches = document.getElementById('moodboardSwatches');
+    const moodboardNotes = document.getElementById('moodboardNotes');
+
+    const activeFilters = {
+      category: 'all',
+      size: 'all',
+      space: 'all',
+      style: 'all'
+    };
+
+    function syncWheelScroll(sourceEl, targetEl) {
+      sourceEl.addEventListener('wheel', (e) => {
+        e.preventDefault();
+        const delta = e.deltaY;
+        sourceEl.scrollTop += delta;
+        targetEl.scrollTop = sourceEl.scrollTop;
+      }, { passive: false });
+
+      sourceEl.addEventListener('scroll', () => {
+        if (Math.abs(targetEl.scrollTop - sourceEl.scrollTop) > 2) {
+          targetEl.scrollTop = sourceEl.scrollTop;
+        }
+      });
+    }
+    syncWheelScroll(beforeScrollBox, afterScrollBox);
+    syncWheelScroll(afterScrollBox, beforeScrollBox);
+
+    toggleMoodboardBtn.addEventListener('click', () => {
+      const isHidden = moodboardSheet.style.display === 'none';
+      moodboardSheet.style.display = isHidden ? 'block' : 'none';
+      moodboardArrow.textContent = isHidden ? '▴' : '▾';
+      toggleMoodboardBtn.classList.toggle('active', isHidden);
+    });
 
     function openProjectModal(projectId) {
       const item = projects.find((p) => p.id === projectId);
       if (!item) return;
-      modalImg.src = item.img;
-      modalImg.alt = item.title;
+
+      modalBeforeImg.src = item.beforeImg || item.img;
+      modalAfterImg.src = item.afterImg || item.img;
+      beforeScrollBox.scrollTop = 0;
+      afterScrollBox.scrollTop = 0;
+
       modalCategory.textContent = item.label;
+      modalFilterTags.textContent = `#${item.sizeTag} · #${item.spaceTag} · #${item.styleTag}`;
       modalTitle.textContent = item.title;
       modalLocation.textContent = item.location;
       modalArea.textContent = item.area;
       modalPeriod.textContent = item.period;
+      modalMaterials.textContent = item.materials;
+      modalScope.textContent = item.scope;
       modalDesc.textContent = item.desc;
+
+      moodboardSheet.style.display = 'none';
+      moodboardArrow.textContent = '▾';
+      toggleMoodboardBtn.classList.remove('active');
+      if (item.moodboard) {
+        moodboardTitle.textContent = `${item.title} — 무드보드 제안서`;
+        moodboardConcept.textContent = item.moodboard.concept;
+        moodboardSwatches.innerHTML = item.moodboard.colors.map((c) => `
+          <div class="swatch-item">
+            <span class="swatch-color" style="background-color: ${c.hex};"></span>
+            <span class="swatch-name">${c.name}</span>
+            <span class="swatch-hex">${c.hex}</span>
+          </div>
+        `).join('');
+        moodboardNotes.innerHTML = item.moodboard.notes.map((n) => `<li>${n}</li>`).join('');
+      }
+
       projectModal.classList.add('active');
       projectModal.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
@@ -303,45 +655,79 @@
       document.body.style.overflow = '';
     }
 
-    function renderWorks(filter) {
-      const filtered = filter === 'all' ? projects : projects.filter((item) => item.category === filter);
+    function renderFilteredWorks() {
+      const filtered = projects.filter((item) => {
+        const matchCat = activeFilters.category === 'all' || item.category === activeFilters.category;
+        const matchSize = activeFilters.size === 'all' || item.sizeTag === activeFilters.size;
+        const matchSpace = activeFilters.space === 'all' || item.spaceTag === activeFilters.space;
+        const matchStyle = activeFilters.style === 'all' || item.styleTag === activeFilters.style;
+        return matchCat && matchSize && matchSpace && matchStyle;
+      });
+
+      if (captionMap[activeFilters.category]) {
+        sideCaptionTitle.textContent = `${captionMap[activeFilters.category].title.replace(/\(\d+\)/, '')} (${filtered.length}건)`;
+        sideCaptionDesc.textContent = captionMap[activeFilters.category].desc;
+      }
+
+      if (filtered.length === 0) {
+        worksGrid.style.display = 'none';
+        worksGrid.innerHTML = '';
+        worksPlaceholder.style.display = 'block';
+        return;
+      }
+
+      worksPlaceholder.style.display = 'none';
+      worksGrid.style.display = 'grid';
       worksGrid.innerHTML = filtered.map((item, idx) => `
-        <article class="work-card fade-in-card" data-id="${item.id}" style="animation-delay: ${idx * 0.08}s">
-          <div class="card-thumb"><img src="${item.img}" alt="${item.title}"></div>
+        <article class="work-card fade-in-card" data-id="${item.id}" style="animation-delay: ${idx * 0.06}s">
+          <div class="card-thumb">
+            <img src="${item.img}" alt="${item.title}">
+            <span class="card-ba-pill">BEFORE &amp; AFTER</span>
+          </div>
           <div class="card-body">
-            <span class="category">${item.label}</span>
+            <div class="card-meta-tags">
+              <span class="category">${item.label}</span>
+              <span class="mini-spec-tag">${item.sizeTag} · ${item.spaceTag} · ${item.styleTag}</span>
+            </div>
             <h3>${item.title}</h3>
             <p>${item.summary}</p>
-            <span class="view-detail">VIEW DETAIL →</span>
+            <div class="card-footer-row">
+              <span class="view-detail">VIEW DETAIL →</span>
+            </div>
           </div>
         </article>
       `).join('');
-      worksPlaceholder.style.display = 'none';
-      worksGrid.style.display = 'grid';
-      if (captionMap[filter]) {
-        sideCaptionTitle.textContent = captionMap[filter].title;
-        sideCaptionDesc.textContent = captionMap[filter].desc;
-      }
     }
 
     filterBtns.forEach((btn) => {
       btn.addEventListener('click', () => {
-        const selected = btn.dataset.filter;
-        if (currentFilter === selected) {
-          currentFilter = null;
-          filterBtns.forEach((b) => b.classList.remove('active'));
-          worksGrid.style.display = 'none';
-          worksGrid.innerHTML = '';
-          worksPlaceholder.style.display = 'block';
-          sideCaptionTitle.textContent = 'Selected Works';
-          sideCaptionDesc.textContent = '상단의 카테고리 버튼(전체 작업물, 건축, 주거 공간, 상업 공간)을 클릭하시면 해당 분야의 대표 프로젝트를 확인하실 수 있습니다.';
-          return;
-        }
-        currentFilter = selected;
+        activeFilters.category = btn.dataset.filter;
         filterBtns.forEach((b) => b.classList.remove('active'));
         btn.classList.add('active');
-        renderWorks(selected);
+        renderFilteredWorks();
       });
+    });
+
+    subFilterChips.forEach((chip) => {
+      chip.addEventListener('click', () => {
+        const group = chip.parentElement.dataset.group;
+        activeFilters[group] = chip.dataset.val;
+        chip.parentElement.querySelectorAll('.sub-chip').forEach((c) => c.classList.remove('active'));
+        chip.classList.add('active');
+        renderFilteredWorks();
+      });
+    });
+
+    resetSubFiltersBtn.addEventListener('click', () => {
+      activeFilters.category = 'all';
+      activeFilters.size = 'all';
+      activeFilters.space = 'all';
+      activeFilters.style = 'all';
+      filterBtns.forEach((b) => b.classList.toggle('active', b.dataset.filter === 'all'));
+      document.querySelectorAll('.sub-filter-chips').forEach((groupEl) => {
+        groupEl.querySelectorAll('.sub-chip').forEach((c) => c.classList.toggle('active', c.dataset.val === 'all'));
+      });
+      renderFilteredWorks();
     });
 
     worksGrid.addEventListener('click', (e) => {
@@ -352,6 +738,8 @@
     modalCloseBtn.addEventListener('click', closeProjectModal);
     projectModal.addEventListener('click', (e) => { if (e.target === projectModal) closeProjectModal(); });
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && projectModal.classList.contains('active')) closeProjectModal(); });
+
+    renderFilteredWorks();
   </script>
 </body>
 </html>
